@@ -23,8 +23,12 @@ namespace ProjectChineseChess {
 		/// 清除任何使用中的資源。
 		/// </summary>
 		~StartForm();
-	public: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
+	public: System::Windows::Forms::Button^ startButton;
+	private: System::Windows::Forms::Button^ exitButton;
+	public:
+	protected:
+
+
 	public:
 	protected:
 
@@ -43,7 +47,7 @@ namespace ProjectChineseChess {
 		/// </summary>
 		void InitializeComponent(void);
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void startButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void exitButton_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

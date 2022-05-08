@@ -40,41 +40,41 @@ namespace ProjectChineseChess
 
 	inline void StartForm::InitializeComponent(void)
 	{
-		this->button1 = (gcnew System::Windows::Forms::Button());
-		this->button2 = (gcnew System::Windows::Forms::Button());
+		this->startButton = (gcnew System::Windows::Forms::Button());
+		this->exitButton = (gcnew System::Windows::Forms::Button());
 		this->SuspendLayout();
 		// 
-		// button1
+		// startButton
 		// 
-		this->button1->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		this->startButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(136)));
-		this->button1->Location = System::Drawing::Point(268, 518);
-		this->button1->Name = L"button1";
-		this->button1->Size = System::Drawing::Size(245, 90);
-		this->button1->TabIndex = 0;
-		this->button1->Text = L"開始遊戲";
-		this->button1->UseVisualStyleBackColor = true;
-		this->button1->Click += gcnew System::EventHandler(this, &StartForm::button1_Click);
+		this->startButton->Location = System::Drawing::Point(268, 518);
+		this->startButton->Name = L"startButton";
+		this->startButton->Size = System::Drawing::Size(245, 90);
+		this->startButton->TabIndex = 0;
+		this->startButton->Text = L"開始遊戲";
+		this->startButton->UseVisualStyleBackColor = true;
+		this->startButton->Click += gcnew System::EventHandler(this, &StartForm::startButton_Click);
 		// 
-		// button2
+		// exitButton
 		// 
-		this->button2->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		this->exitButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(136)));
-		this->button2->Location = System::Drawing::Point(268, 636);
-		this->button2->Name = L"button2";
-		this->button2->Size = System::Drawing::Size(245, 88);
-		this->button2->TabIndex = 1;
-		this->button2->Text = L"離開遊戲";
-		this->button2->UseVisualStyleBackColor = true;
-		this->button2->Click += gcnew System::EventHandler(this, &StartForm::button2_Click);
+		this->exitButton->Location = System::Drawing::Point(268, 636);
+		this->exitButton->Name = L"exitButton";
+		this->exitButton->Size = System::Drawing::Size(245, 88);
+		this->exitButton->TabIndex = 1;
+		this->exitButton->Text = L"離開遊戲";
+		this->exitButton->UseVisualStyleBackColor = true;
+		this->exitButton->Click += gcnew System::EventHandler(this, &StartForm::exitButton_Click);
 		// 
 		// StartForm
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->ClientSize = System::Drawing::Size(752, 825);
-		this->Controls->Add(this->button2);
-		this->Controls->Add(this->button1);
+		this->Controls->Add(this->exitButton);
+		this->Controls->Add(this->startButton);
 		this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 		this->MaximizeBox = false;
 		this->MaximumSize = System::Drawing::Size(768, 864);
@@ -84,16 +84,16 @@ namespace ProjectChineseChess
 		this->ResumeLayout(false);
 
 	}
-
-	inline System::Void StartForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
+	//開始遊戲按鈕被按下
+	inline System::Void StartForm::startButton_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		GameForm^ form = gcnew GameForm();
-		form->Show();
-		this->Hide();
+		GameForm^ form = gcnew GameForm();  //建立遊戲視窗
+		form->Show();  //顯示遊戲視窗
+		this->Hide();  //隱藏開始視窗
 	}
-
-	inline System::Void StartForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
+	//結束遊戲按鈕被按下
+	inline System::Void StartForm::exitButton_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		Application::Exit();
+		Application::Exit();  //結束程式
 	}
 }

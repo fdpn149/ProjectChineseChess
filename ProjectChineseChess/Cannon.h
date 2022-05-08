@@ -2,7 +2,7 @@
 #include "Chess.h"
 namespace ProjectChineseChess
 {
-
+	//пе
 	ref class Cannon : public Chess
 	{
 	public:

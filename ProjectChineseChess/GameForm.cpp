@@ -569,21 +569,24 @@ namespace ProjectChineseChess
 
 	}
 
+	//當視窗被關閉
 	inline System::Void GameForm::GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
 	{
-		Application::Exit();
+		Application::Exit();  //結束程式
 	}
 
+	//當棋子被按下
 	inline System::Void GameForm::piece_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		PictureBox^ piece = (PictureBox^)sender;
-		game->PieceClick(piece);
+		PictureBox^ piece = (PictureBox^)sender;  //將piece設為被點擊的棋子
+		game->PieceClick(piece);  //執行棋子被點擊後所需做的事
 
 	}
 
+	//當視窗被按下
 	inline System::Void GameForm::GameForm_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		game->FormClick();
+		game->FormClick();  //執行視窗被點擊後所需做的事
 	}
 
 }

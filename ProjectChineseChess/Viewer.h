@@ -1,5 +1,5 @@
 #pragma once
-//#include "GameForm.h"
+
 namespace ProjectChineseChess {
 
 	ref class Viewer

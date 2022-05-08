@@ -15,7 +15,7 @@ namespace ProjectChineseChess {
 	/// </summary>
 	public ref class GameForm : public System::Windows::Forms::Form
 	{
-		GameManager^ gm = gcnew GameManager();
+		GameManager^ game = gcnew GameManager();
 	public:
 		static GameForm^ gameform;
 		GameForm(void);
@@ -25,42 +25,74 @@ namespace ProjectChineseChess {
 		/// 清除任何使用中的資源。
 		/// </summary>
 		~GameForm();
-	private: System::Windows::Forms::PictureBox^ chariotB1;
-	private: System::Windows::Forms::PictureBox^ horseB1;
-	private: System::Windows::Forms::PictureBox^ elephantB1;
-	private: System::Windows::Forms::PictureBox^ advisorB1;
-	private: System::Windows::Forms::PictureBox^ generalB;
-	private: System::Windows::Forms::PictureBox^ advisorB2;
-	private: System::Windows::Forms::PictureBox^ elephantB2;
-	private: System::Windows::Forms::PictureBox^ horseB2;
-	private: System::Windows::Forms::PictureBox^ chariotB2;
-	private: System::Windows::Forms::PictureBox^ cannonB1;
-	private: System::Windows::Forms::PictureBox^ cannonB2;
-	private: System::Windows::Forms::PictureBox^ soldierB1;
+	public: System::Windows::Forms::PictureBox^ chariotB1;
+	protected:
+	public: System::Windows::Forms::PictureBox^ horseB1;
+	public: System::Windows::Forms::PictureBox^ elephantB1;
+	public: System::Windows::Forms::PictureBox^ advisorB1;
+	public: System::Windows::Forms::PictureBox^ generalB;
+	public: System::Windows::Forms::PictureBox^ advisorB2;
+	public: System::Windows::Forms::PictureBox^ elephantB2;
+	public: System::Windows::Forms::PictureBox^ horseB2;
+	public: System::Windows::Forms::PictureBox^ chariotB2;
+	public: System::Windows::Forms::PictureBox^ cannonB1;
+	public: System::Windows::Forms::PictureBox^ cannonB2;
+	public: System::Windows::Forms::PictureBox^ soldierB1;
+
+
+
+
+
+
+
+
+
+
+
+
 	public: System::Windows::Forms::PictureBox^ soldierB2;
+	public: System::Windows::Forms::PictureBox^ soldierB3;
+	public: System::Windows::Forms::PictureBox^ soldierB4;
+	public: System::Windows::Forms::PictureBox^ soldierB5;
+	public: System::Windows::Forms::PictureBox^ solderR1;
+	public: System::Windows::Forms::PictureBox^ solderR2;
+	public: System::Windows::Forms::PictureBox^ solderR3;
+	public: System::Windows::Forms::PictureBox^ solderR4;
+	public: System::Windows::Forms::PictureBox^ solderR5;
+	public: System::Windows::Forms::PictureBox^ cannonR1;
+	public: System::Windows::Forms::PictureBox^ cannonR2;
+	public: System::Windows::Forms::PictureBox^ chariotR1;
+	public: System::Windows::Forms::PictureBox^ horseR1;
+	public: System::Windows::Forms::PictureBox^ elephantR1;
+	public: System::Windows::Forms::PictureBox^ advisorR1;
+	public: System::Windows::Forms::PictureBox^ generalR;
+	public: System::Windows::Forms::PictureBox^ chariotR2;
+	public: System::Windows::Forms::PictureBox^ horseR2;
+	public: System::Windows::Forms::PictureBox^ elephantR2;
+	public: System::Windows::Forms::PictureBox^ advisorR2;
 	private:
 
 	private:
 
-	private: System::Windows::Forms::PictureBox^ soldierB3;
-	private: System::Windows::Forms::PictureBox^ soldierB4;
-	private: System::Windows::Forms::PictureBox^ soldierB5;
-	private: System::Windows::Forms::PictureBox^ solderR1;
-	private: System::Windows::Forms::PictureBox^ solderR2;
-	private: System::Windows::Forms::PictureBox^ solderR3;
-	private: System::Windows::Forms::PictureBox^ solderR4;
-	private: System::Windows::Forms::PictureBox^ solderR5;
-	private: System::Windows::Forms::PictureBox^ cannonR1;
-	private: System::Windows::Forms::PictureBox^ cannonR2;
-	private: System::Windows::Forms::PictureBox^ chariotR1;
-	private: System::Windows::Forms::PictureBox^ horseR1;
-	private: System::Windows::Forms::PictureBox^ elephantR1;
-	private: System::Windows::Forms::PictureBox^ advisorR1;
-	private: System::Windows::Forms::PictureBox^ generalR;
-	private: System::Windows::Forms::PictureBox^ chariotR2;
-	private: System::Windows::Forms::PictureBox^ horseR2;
-	private: System::Windows::Forms::PictureBox^ elephantR2;
-	private: System::Windows::Forms::PictureBox^ advisorR2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>

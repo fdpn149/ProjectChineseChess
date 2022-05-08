@@ -573,7 +573,8 @@ inline System::Void ProjectChineseChess::GameForm::GameForm_FormClosing(System::
 
 inline System::Void ProjectChineseChess::GameForm::piece_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	PictureBox^ picture = (PictureBox^)sender;
-	gm->clicked(picture);
-	//MessageBox::Show(picture->Name);
+	PictureBox^ piece = (PictureBox^)sender;
+	game->PieceClicked(piece);
+	//MessageBox::Show(piece->Name);
+	
 }

@@ -29,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Chess.h" />
+    <ClInclude Include="Enums.h" />
     <ClInclude Include="GameForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -55,6 +56,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Green.png" />
     <Image Include="Resources\Red.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

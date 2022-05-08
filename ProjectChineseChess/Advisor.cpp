@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "Advisor.h"
 
 namespace ProjectChineseChess
 {

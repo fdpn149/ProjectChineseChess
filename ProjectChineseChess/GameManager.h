@@ -1,24 +1,28 @@
 #pragma once
-#include <cliext/vector>
+//#include <cliext/vector>
+#include <cliext/map>
 #include "Chess.h"
 #include "Board.h"
 #include "Enums.h"
-using cliext::vector;
-
+using cliext::map;
+using System::Windows::Forms::PictureBox;
+using System::String;
 namespace ProjectChineseChess
 {
 	ref class Viewer;
 	ref class GameManager
 	{
-		vector<Chess^> on_board_black;
-		vector<Chess^> on_board_red;
+		map<String^,Chess^> on_board;
 		int current_player;
 		Board board;
 		Viewer^ viewer;
-		//array<bool>^ clicked = gcnew array<bool>(32);
 		State state = State::NONE;
+		PictureBox^ lastClicked;
+		void pieceInit();
+		void changeState(PictureBox^ nowPiece);
 	public:
 		GameManager();
-		void PieceClicked(System::Windows::Forms::PictureBox^ piece);
+		void PieceClick(PictureBox^ piece);
+		void FormClick();
 	};
 }

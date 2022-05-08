@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "Soldier.h"
 
 namespace ProjectChineseChess
 {

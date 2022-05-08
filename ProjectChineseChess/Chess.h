@@ -1,14 +1,15 @@
 #pragma once
+#include "Enums.h"
+namespace ProjectChineseChess 
+{
 
-namespace ProjectChineseChess {
-
-	ref class Chess
+	ref class Chess abstract
 	{
+		Player player;
+		int id;
 	public:
-		Chess(int x, int y)
-		{
-			
-		}
+		Chess(Player player, int id);
+		virtual void Move() abstract;
 	};
 
 }

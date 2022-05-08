@@ -1,5 +1,7 @@
 #pragma once
 
+using System::Windows::Forms::PictureBox;
+
 namespace ProjectChineseChess {
 
 	ref class Viewer
@@ -9,7 +11,9 @@ namespace ProjectChineseChess {
 		System::Resources::ResourceManager^ resourceManager = gcnew System::Resources::ResourceManager(resourceName, resourceAssembly);
 	public:
 		Viewer();
-		void change(System::Windows::Forms::PictureBox^ p);
+		void PieceClick(PictureBox^ piece);
+		void PieceUnclick(PictureBox^ piece);
+		//void test(System::Windows::Forms::PictureBox^ p);
 	};
 
 }

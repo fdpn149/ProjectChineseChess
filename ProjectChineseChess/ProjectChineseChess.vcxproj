@@ -19,21 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Advisor.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Cannon.cpp" />
+    <ClCompile Include="Chariot.cpp" />
     <ClCompile Include="Chess.cpp" />
+    <ClCompile Include="Elephant.cpp" />
     <ClCompile Include="GameForm.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="General.cpp" />
+    <ClCompile Include="Horse.cpp" />
+    <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="StartForm.cpp" />
     <ClCompile Include="Viewer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Advisor.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Cannon.h" />
+    <ClInclude Include="Chariot.h" />
     <ClInclude Include="Chess.h" />
+    <ClInclude Include="Elephant.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="GameForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="General.h" />
+    <ClInclude Include="Horse.h" />
+    <ClInclude Include="Soldier.h" />
     <ClInclude Include="StartForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -58,6 +72,7 @@
   <ItemGroup>
     <Image Include="Resources\Green.png" />
     <Image Include="Resources\Red.png" />
+    <Image Include="Resources\Yellow.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

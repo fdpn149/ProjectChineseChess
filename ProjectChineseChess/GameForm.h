@@ -109,5 +109,6 @@ namespace ProjectChineseChess {
 #pragma endregion
 	private: System::Void GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 	private: System::Void piece_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void GameForm_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

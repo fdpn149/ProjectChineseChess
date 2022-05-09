@@ -54,11 +54,16 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::PictureBox^ soldierB3;
 	public: System::Windows::Forms::PictureBox^ soldierB4;
 	public: System::Windows::Forms::PictureBox^ soldierB5;
-	public: System::Windows::Forms::PictureBox^ solderR1;
-	public: System::Windows::Forms::PictureBox^ solderR2;
-	public: System::Windows::Forms::PictureBox^ solderR3;
-	public: System::Windows::Forms::PictureBox^ solderR4;
-	public: System::Windows::Forms::PictureBox^ solderR5;
+	public: System::Windows::Forms::PictureBox^ soldierR1;
+	public: System::Windows::Forms::PictureBox^ soldierR2;
+
+
+	public: System::Windows::Forms::PictureBox^ soldierR3;
+	public: System::Windows::Forms::PictureBox^ soldierR4;
+	public: System::Windows::Forms::PictureBox^ soldierR5;
+
+
+
 	public: System::Windows::Forms::PictureBox^ cannonR1;
 	public: System::Windows::Forms::PictureBox^ cannonR2;
 	public: System::Windows::Forms::PictureBox^ chariotR1;

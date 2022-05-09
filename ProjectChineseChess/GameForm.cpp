@@ -49,11 +49,11 @@ namespace ProjectChineseChess
 		this->soldierB3 = (gcnew System::Windows::Forms::PictureBox());
 		this->soldierB4 = (gcnew System::Windows::Forms::PictureBox());
 		this->soldierB5 = (gcnew System::Windows::Forms::PictureBox());
-		this->solderR1 = (gcnew System::Windows::Forms::PictureBox());
-		this->solderR2 = (gcnew System::Windows::Forms::PictureBox());
-		this->solderR3 = (gcnew System::Windows::Forms::PictureBox());
-		this->solderR4 = (gcnew System::Windows::Forms::PictureBox());
-		this->solderR5 = (gcnew System::Windows::Forms::PictureBox());
+		this->soldierR1 = (gcnew System::Windows::Forms::PictureBox());
+		this->soldierR2 = (gcnew System::Windows::Forms::PictureBox());
+		this->soldierR3 = (gcnew System::Windows::Forms::PictureBox());
+		this->soldierR4 = (gcnew System::Windows::Forms::PictureBox());
+		this->soldierR5 = (gcnew System::Windows::Forms::PictureBox());
 		this->cannonR1 = (gcnew System::Windows::Forms::PictureBox());
 		this->cannonR2 = (gcnew System::Windows::Forms::PictureBox());
 		this->chariotR1 = (gcnew System::Windows::Forms::PictureBox());
@@ -81,11 +81,11 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierB3))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierB4))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierB5))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR1))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR2))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR3))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR4))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR5))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR1))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR2))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR3))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR4))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR5))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cannonR1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cannonR2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotR1))->BeginInit();
@@ -291,65 +291,65 @@ namespace ProjectChineseChess
 		this->soldierB5->TabStop = false;
 		this->soldierB5->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// solderR1
+		// soldierR1
 		// 
-		this->solderR1->BackColor = System::Drawing::Color::Transparent;
-		this->solderR1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"solderR1.BackgroundImage")));
-		this->solderR1->Location = System::Drawing::Point(40, 490);
-		this->solderR1->Name = L"solderR1";
-		this->solderR1->Size = System::Drawing::Size(70, 70);
-		this->solderR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->solderR1->TabIndex = 16;
-		this->solderR1->TabStop = false;
-		this->solderR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR1->BackColor = System::Drawing::Color::Transparent;
+		this->soldierR1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierR1.BackgroundImage")));
+		this->soldierR1->Location = System::Drawing::Point(40, 490);
+		this->soldierR1->Name = L"soldierR1";
+		this->soldierR1->Size = System::Drawing::Size(70, 70);
+		this->soldierR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->soldierR1->TabIndex = 16;
+		this->soldierR1->TabStop = false;
+		this->soldierR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// solderR2
+		// soldierR2
 		// 
-		this->solderR2->BackColor = System::Drawing::Color::Transparent;
-		this->solderR2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"solderR2.BackgroundImage")));
-		this->solderR2->Location = System::Drawing::Point(190, 490);
-		this->solderR2->Name = L"solderR2";
-		this->solderR2->Size = System::Drawing::Size(70, 70);
-		this->solderR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->solderR2->TabIndex = 17;
-		this->solderR2->TabStop = false;
-		this->solderR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR2->BackColor = System::Drawing::Color::Transparent;
+		this->soldierR2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierR2.BackgroundImage")));
+		this->soldierR2->Location = System::Drawing::Point(190, 490);
+		this->soldierR2->Name = L"soldierR2";
+		this->soldierR2->Size = System::Drawing::Size(70, 70);
+		this->soldierR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->soldierR2->TabIndex = 17;
+		this->soldierR2->TabStop = false;
+		this->soldierR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// solderR3
+		// soldierR3
 		// 
-		this->solderR3->BackColor = System::Drawing::Color::Transparent;
-		this->solderR3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"solderR3.BackgroundImage")));
-		this->solderR3->Location = System::Drawing::Point(340, 490);
-		this->solderR3->Name = L"solderR3";
-		this->solderR3->Size = System::Drawing::Size(70, 70);
-		this->solderR3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->solderR3->TabIndex = 18;
-		this->solderR3->TabStop = false;
-		this->solderR3->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR3->BackColor = System::Drawing::Color::Transparent;
+		this->soldierR3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierR3.BackgroundImage")));
+		this->soldierR3->Location = System::Drawing::Point(340, 490);
+		this->soldierR3->Name = L"soldierR3";
+		this->soldierR3->Size = System::Drawing::Size(70, 70);
+		this->soldierR3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->soldierR3->TabIndex = 18;
+		this->soldierR3->TabStop = false;
+		this->soldierR3->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// solderR4
+		// soldierR4
 		// 
-		this->solderR4->BackColor = System::Drawing::Color::Transparent;
-		this->solderR4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"solderR4.BackgroundImage")));
-		this->solderR4->Location = System::Drawing::Point(490, 490);
-		this->solderR4->Name = L"solderR4";
-		this->solderR4->Size = System::Drawing::Size(70, 70);
-		this->solderR4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->solderR4->TabIndex = 19;
-		this->solderR4->TabStop = false;
-		this->solderR4->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR4->BackColor = System::Drawing::Color::Transparent;
+		this->soldierR4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierR4.BackgroundImage")));
+		this->soldierR4->Location = System::Drawing::Point(490, 490);
+		this->soldierR4->Name = L"soldierR4";
+		this->soldierR4->Size = System::Drawing::Size(70, 70);
+		this->soldierR4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->soldierR4->TabIndex = 19;
+		this->soldierR4->TabStop = false;
+		this->soldierR4->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// solderR5
+		// soldierR5
 		// 
-		this->solderR5->BackColor = System::Drawing::Color::Transparent;
-		this->solderR5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"solderR5.BackgroundImage")));
-		this->solderR5->Location = System::Drawing::Point(640, 490);
-		this->solderR5->Name = L"solderR5";
-		this->solderR5->Size = System::Drawing::Size(70, 70);
-		this->solderR5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->solderR5->TabIndex = 20;
-		this->solderR5->TabStop = false;
-		this->solderR5->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR5->BackColor = System::Drawing::Color::Transparent;
+		this->soldierR5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierR5.BackgroundImage")));
+		this->soldierR5->Location = System::Drawing::Point(640, 490);
+		this->soldierR5->Name = L"soldierR5";
+		this->soldierR5->Size = System::Drawing::Size(70, 70);
+		this->soldierR5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->soldierR5->TabIndex = 20;
+		this->soldierR5->TabStop = false;
+		this->soldierR5->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
 		// cannonR1
 		// 
@@ -503,11 +503,11 @@ namespace ProjectChineseChess
 		this->Controls->Add(this->chariotR1);
 		this->Controls->Add(this->cannonR2);
 		this->Controls->Add(this->cannonR1);
-		this->Controls->Add(this->solderR5);
-		this->Controls->Add(this->solderR4);
-		this->Controls->Add(this->solderR3);
-		this->Controls->Add(this->solderR2);
-		this->Controls->Add(this->solderR1);
+		this->Controls->Add(this->soldierR5);
+		this->Controls->Add(this->soldierR4);
+		this->Controls->Add(this->soldierR3);
+		this->Controls->Add(this->soldierR2);
+		this->Controls->Add(this->soldierR1);
 		this->Controls->Add(this->soldierB5);
 		this->Controls->Add(this->soldierB4);
 		this->Controls->Add(this->soldierB3);
@@ -549,11 +549,11 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierB3))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierB4))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierB5))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR1))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR2))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR3))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR4))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->solderR5))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR1))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR2))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR3))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR4))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->soldierR5))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cannonR1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cannonR2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotR1))->EndInit();

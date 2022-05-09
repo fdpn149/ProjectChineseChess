@@ -15,15 +15,15 @@ namespace ProjectChineseChess
 	{
 		map<String^,Chess^> on_board;
 		int current_player;
-		Board board;
+		Board^ board;
 		Viewer^ viewer;
 		State state = State::NONE;  //現在的狀態
 		PictureBox^ lastClicked;  //上一個被點擊的棋子
-		vector<PictureBox^> green;  //存可走的路徑
-		vector<PictureBox^> red;  //存可被吃掉的棋子
 		void pieceInit();  //建立棋子物件，並加到on_board中
 		void changeState(PictureBox^ nowPiece);  //更改狀態
 	public:
+		static vector<PictureBox^>^ green = gcnew vector<PictureBox^>;  //存可走的路徑
+		static vector<PictureBox^>^ red = gcnew vector<PictureBox^>;  //存可被吃掉的棋子
 		GameManager();
 		void PieceClick(PictureBox^ piece);  //棋子被點擊
 		void FormClick();  //視窗被點擊

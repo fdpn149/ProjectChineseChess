@@ -9,7 +9,6 @@
 #include "Soldier.h"
 namespace ProjectChineseChess
 {
-
 	void GameManager::pieceInit()
 	{
 		//建立各種棋子的物件
@@ -46,7 +45,9 @@ namespace ProjectChineseChess
 			state = State::NONE;
 		//若點兩顆不同的棋子
 		else if (state == State::PIECE_CLICKED)
+		{
 			state = State::MOVE_PIECE;
+		}
 		//若只點了一顆棋子
 		else
 			state = State::PIECE_CLICKED;
@@ -64,12 +65,13 @@ namespace ProjectChineseChess
 		//若要移動棋子
 		if (state == State::MOVE_PIECE)
 		{
-
+			
 		}
 		//若只點一顆棋子
 		else if (state == State::PIECE_CLICKED)
 		{
 			viewer->PieceClick(piece);  //讓棋子變色
+			on_board[piece->Name]->CanMove(board,piece);
 		}
 		//若同一棋子被點兩下
 		else

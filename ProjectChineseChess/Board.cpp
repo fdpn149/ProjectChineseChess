@@ -22,4 +22,11 @@ namespace ProjectChineseChess
         board[2, 9] = GameForm::gameform->elephantR1;   board[6, 9] = GameForm::gameform->elephantR2;
         board[3, 9] = GameForm::gameform->advisorR1;    board[5, 9] = GameForm::gameform->advisorR2;
     }
+    Point^ Board::ToBoardCoord(Point^ formCoord)
+    {
+        Point^ point;
+        point->X = (formCoord->X + 35) / 75 - 1;
+        point->Y = (formCoord->Y + 35) / 75 - 1;
+        return point;
+    }
 }

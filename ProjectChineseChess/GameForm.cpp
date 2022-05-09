@@ -9,8 +9,9 @@ namespace ProjectChineseChess
 
 	inline GameForm::GameForm(void)
 	{
-		InitializeComponent();
 		gameform = this;
+		InitializeComponent();
+		game = gcnew GameManager();
 		//
 		//TODO:  在此加入建構函式程式碼
 		//

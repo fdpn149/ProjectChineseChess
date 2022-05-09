@@ -15,11 +15,11 @@ namespace ProjectChineseChess {
 	/// </summary>
 	public ref class GameForm : public System::Windows::Forms::Form
 	{
-		GameManager^ game = gcnew GameManager();
 	public:
 		static GameForm^ gameform;
 		GameForm(void);
-
+	private:
+		GameManager^ game;
 	protected:
 		/// <summary>
 		/// 清除任何使用中的資源。

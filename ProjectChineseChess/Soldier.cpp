@@ -13,7 +13,7 @@ namespace ProjectChineseChess
         //如果是"兵"
         if (this->player == Player::RED)
         {
-            if (crossedRiver)  //如果已經過河
+            if (crossedRiver)  //如果已經過河  
             {
 
             }

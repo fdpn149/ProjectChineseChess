@@ -30,7 +30,8 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::PictureBox^ horseB1;
 	public: System::Windows::Forms::PictureBox^ elephantB1;
 	public: System::Windows::Forms::PictureBox^ advisorB1;
-	public: System::Windows::Forms::PictureBox^ generalB;
+	public: System::Windows::Forms::PictureBox^ generalB1;
+
 	public: System::Windows::Forms::PictureBox^ advisorB2;
 	public: System::Windows::Forms::PictureBox^ elephantB2;
 	public: System::Windows::Forms::PictureBox^ horseB2;
@@ -70,7 +71,8 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::PictureBox^ horseR1;
 	public: System::Windows::Forms::PictureBox^ elephantR1;
 	public: System::Windows::Forms::PictureBox^ advisorR1;
-	public: System::Windows::Forms::PictureBox^ generalR;
+	public: System::Windows::Forms::PictureBox^ generalR1;
+
 	public: System::Windows::Forms::PictureBox^ chariotR2;
 	public: System::Windows::Forms::PictureBox^ horseR2;
 	public: System::Windows::Forms::PictureBox^ elephantR2;

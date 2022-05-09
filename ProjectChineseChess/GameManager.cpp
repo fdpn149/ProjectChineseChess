@@ -19,7 +19,7 @@ namespace ProjectChineseChess
 		Cannon^ cannonB1 = gcnew Cannon(Player::BLACK, 1), ^ cannonB2 = gcnew Cannon(Player::BLACK, 2);
 		Soldier^ soldierB1 = gcnew Soldier(Player::BLACK, 1), ^ soldierB2 = gcnew Soldier(Player::BLACK, 2), ^ soldierB3 = gcnew Soldier(Player::BLACK, 3);
 		Soldier^ soldierB4 = gcnew Soldier(Player::BLACK, 4), ^ soldierB5 = gcnew Soldier(Player::BLACK, 5);
-		General^ generalB = gcnew General(Player::BLACK, 0), ^ generalR = gcnew General(Player::RED, 0);
+		General^ generalB1 = gcnew General(Player::BLACK, 1), ^ generalR1 = gcnew General(Player::RED, 1);
 		Chariot^ chariotR1 = gcnew Chariot(Player::RED, 1), ^ chariotR2 = gcnew Chariot(Player::RED, 2);
 		Horse^ horseR1 = gcnew Horse(Player::RED, 1), ^ horseR2 = gcnew Horse(Player::RED, 2);
 		Elephant^ elephantR1 = gcnew Elephant(Player::RED, 1), ^ elephantR2 = gcnew Elephant(Player::RED, 2);
@@ -31,11 +31,11 @@ namespace ProjectChineseChess
 		on_board["chariotB1"] = chariotB1; on_board["chariotB2"] = chariotB2; on_board["horseB1"] = horseB1; on_board["horseB2"] = horseB2;
 		on_board["elephantB1"] = elephantB1; on_board["elephantB2"] = elephantB2; on_board["advisorB1"] = advisorB1; on_board["advisorB2"] = advisorB2;
 		on_board["cannonB1"] = cannonB1; on_board["cannonB2"] = cannonB2; on_board["soldierB1"] = soldierB1; on_board["soldierB2"] = soldierB2;
-		on_board["soldierB3"] = soldierB3; on_board["soldierB4"] = soldierB4; on_board["soldierB5"] = soldierB5; on_board["generalB"] = generalB;
+		on_board["soldierB3"] = soldierB3; on_board["soldierB4"] = soldierB4; on_board["soldierB5"] = soldierB5; on_board["generalB1"] = generalB1;
 		on_board["chariotR1"] = chariotR1; on_board["chariotR2"] = chariotR2; on_board["horseR1"] = horseR1; on_board["horseR2"] = horseR2;
 		on_board["elephantR1"] = elephantR1; on_board["elephantR2"] = elephantR2; on_board["advisorR1"] = advisorR1; on_board["advisorR2"] = advisorR2;
 		on_board["cannonR1"] = cannonR1; on_board["cannonR2"] = cannonR2; on_board["soldierR1"] = soldierR1; on_board["soldierR2"] = soldierR2;
-		on_board["soldierR3"] = soldierR3; on_board["soldierR4"] = soldierR4; on_board["soldierR5"] = soldierR5; on_board["generalR"] = generalR;
+		on_board["soldierR3"] = soldierR3; on_board["soldierR4"] = soldierR4; on_board["soldierR5"] = soldierR5; on_board["generalR1"] = generalR1;
 	}
 
 	void GameManager::changeState(PictureBox^ nowPiece)

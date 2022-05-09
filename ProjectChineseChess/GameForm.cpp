@@ -38,7 +38,7 @@ namespace ProjectChineseChess
 		this->horseB1 = (gcnew System::Windows::Forms::PictureBox());
 		this->elephantB1 = (gcnew System::Windows::Forms::PictureBox());
 		this->advisorB1 = (gcnew System::Windows::Forms::PictureBox());
-		this->generalB = (gcnew System::Windows::Forms::PictureBox());
+		this->generalB1 = (gcnew System::Windows::Forms::PictureBox());
 		this->advisorB2 = (gcnew System::Windows::Forms::PictureBox());
 		this->elephantB2 = (gcnew System::Windows::Forms::PictureBox());
 		this->horseB2 = (gcnew System::Windows::Forms::PictureBox());
@@ -61,7 +61,7 @@ namespace ProjectChineseChess
 		this->horseR1 = (gcnew System::Windows::Forms::PictureBox());
 		this->elephantR1 = (gcnew System::Windows::Forms::PictureBox());
 		this->advisorR1 = (gcnew System::Windows::Forms::PictureBox());
-		this->generalR = (gcnew System::Windows::Forms::PictureBox());
+		this->generalR1 = (gcnew System::Windows::Forms::PictureBox());
 		this->chariotR2 = (gcnew System::Windows::Forms::PictureBox());
 		this->horseR2 = (gcnew System::Windows::Forms::PictureBox());
 		this->elephantR2 = (gcnew System::Windows::Forms::PictureBox());
@@ -70,7 +70,7 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorB1))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalB))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorB2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB2))->BeginInit();
@@ -93,7 +93,7 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseR1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantR1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorR1))->BeginInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalR))->BeginInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalR1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotR2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseR2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantR2))->BeginInit();
@@ -148,17 +148,17 @@ namespace ProjectChineseChess
 		this->advisorB1->TabStop = false;
 		this->advisorB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// generalB
+		// generalB1
 		// 
-		this->generalB->BackColor = System::Drawing::Color::Transparent;
-		this->generalB->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"generalB.BackgroundImage")));
-		this->generalB->Location = System::Drawing::Point(340, 40);
-		this->generalB->Name = L"generalB";
-		this->generalB->Size = System::Drawing::Size(70, 70);
-		this->generalB->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->generalB->TabIndex = 4;
-		this->generalB->TabStop = false;
-		this->generalB->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->generalB1->BackColor = System::Drawing::Color::Transparent;
+		this->generalB1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"generalB1.BackgroundImage")));
+		this->generalB1->Location = System::Drawing::Point(340, 40);
+		this->generalB1->Name = L"generalB1";
+		this->generalB1->Size = System::Drawing::Size(70, 70);
+		this->generalB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->generalB1->TabIndex = 4;
+		this->generalB1->TabStop = false;
+		this->generalB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
 		// advisorB2
 		// 
@@ -424,17 +424,17 @@ namespace ProjectChineseChess
 		this->advisorR1->TabStop = false;
 		this->advisorR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
-		// generalR
+		// generalR1
 		// 
-		this->generalR->BackColor = System::Drawing::Color::Transparent;
-		this->generalR->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"generalR.BackgroundImage")));
-		this->generalR->Location = System::Drawing::Point(340, 715);
-		this->generalR->Name = L"generalR";
-		this->generalR->Size = System::Drawing::Size(70, 70);
-		this->generalR->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-		this->generalR->TabIndex = 27;
-		this->generalR->TabStop = false;
-		this->generalR->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->generalR1->BackColor = System::Drawing::Color::Transparent;
+		this->generalR1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"generalR1.BackgroundImage")));
+		this->generalR1->Location = System::Drawing::Point(340, 715);
+		this->generalR1->Name = L"generalR1";
+		this->generalR1->Size = System::Drawing::Size(70, 70);
+		this->generalR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+		this->generalR1->TabIndex = 27;
+		this->generalR1->TabStop = false;
+		this->generalR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
 		// 
 		// chariotR2
 		// 
@@ -497,7 +497,7 @@ namespace ProjectChineseChess
 		this->Controls->Add(this->elephantR2);
 		this->Controls->Add(this->horseR2);
 		this->Controls->Add(this->chariotR2);
-		this->Controls->Add(this->generalR);
+		this->Controls->Add(this->generalR1);
 		this->Controls->Add(this->advisorR1);
 		this->Controls->Add(this->elephantR1);
 		this->Controls->Add(this->horseR1);
@@ -520,7 +520,7 @@ namespace ProjectChineseChess
 		this->Controls->Add(this->horseB2);
 		this->Controls->Add(this->elephantB2);
 		this->Controls->Add(this->advisorB2);
-		this->Controls->Add(this->generalB);
+		this->Controls->Add(this->generalB1);
 		this->Controls->Add(this->advisorB1);
 		this->Controls->Add(this->elephantB1);
 		this->Controls->Add(this->horseB1);
@@ -538,7 +538,7 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorB1))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalB))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalB1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorB2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB2))->EndInit();
@@ -561,7 +561,7 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseR1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantR1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorR1))->EndInit();
-		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalR))->EndInit();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->generalR1))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotR2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseR2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantR2))->EndInit();

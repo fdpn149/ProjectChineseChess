@@ -56,6 +56,7 @@ namespace ProjectChineseChess
 	GameManager::GameManager()
 	{
 		viewer = gcnew Viewer();
+		board = gcnew Board();
 		pieceInit();
 	}
 

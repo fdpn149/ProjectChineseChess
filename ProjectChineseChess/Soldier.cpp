@@ -17,7 +17,7 @@ namespace ProjectChineseChess
             {
 
             }
-            else  //如果尚未過河 
+            else  //如果尚未過河
             {
 
             }

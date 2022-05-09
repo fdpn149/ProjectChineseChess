@@ -24,7 +24,7 @@ namespace ProjectChineseChess
     }
     Point^ Board::ToBoardCoord(Point^ formCoord)
     {
-        Point^ point;
+        Point^ point = gcnew Point();
         point->X = (formCoord->X + 35) / 75 - 1;
         point->Y = (formCoord->Y + 35) / 75 - 1;
         return point;

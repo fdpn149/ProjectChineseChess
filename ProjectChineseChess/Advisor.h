@@ -6,7 +6,7 @@ namespace ProjectChineseChess
 	ref class Advisor : public Chess
 	{
 	public:
-		Advisor(Color color, int id);
+		Advisor(Color color, int id) : Chess(color, id) {}
 		void CanMove(Board^ board, PictureBox^ piece) override;
 		void Move() override{}
 	};

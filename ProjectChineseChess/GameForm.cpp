@@ -452,7 +452,7 @@ namespace ProjectChineseChess
 		// 
 		this->horseR2->BackColor = System::Drawing::Color::Transparent;
 		this->horseR2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"horseR2.BackgroundImage")));
-		this->horseR2->Location = System::Drawing::Point(564, 715);
+		this->horseR2->Location = System::Drawing::Point(565, 715);
 		this->horseR2->Name = L"horseR2";
 		this->horseR2->Size = System::Drawing::Size(70, 70);
 		this->horseR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;

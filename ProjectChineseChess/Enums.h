@@ -16,6 +16,6 @@ namespace ProjectChineseChess
 	enum class Direction
 	{
 		UP, DOWN, LEFT, RIGHT,
-		LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN
+		LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN  //for advisor and elephant
 	};
 }

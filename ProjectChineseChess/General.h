@@ -5,9 +5,11 @@ namespace ProjectChineseChess
 	//±N
 	ref class General : public Chess
 	{
+		bool inRange(Direction direct, int X, int Y);
+		void pushGreenAndRed(Board^ board, int X, int Y);
 	public:
 		General(Color color, int id) : Chess(color, id) {}
-		void CanMove(Board^ board, PictureBox^ piece) override {}
+		void CanMove(Board^ board, PictureBox^ piece) override;
 		void Move() override {}
 	};
 

@@ -5,7 +5,7 @@ namespace ProjectChineseChess
     Board::Board()
     {
         //儲存棋子的位置
-        board[0, 0] = GameForm::gameform->chariotB1;    board[0, 8] = GameForm::gameform->chariotB2;
+        board[0, 0] = GameForm::gameform->chariotB1;    board[8, 0] = GameForm::gameform->chariotB2;
         board[1, 0] = GameForm::gameform->horseB1;      board[7, 0] = GameForm::gameform->horseB2;
         board[2, 0] = GameForm::gameform->elephantB1;   board[6, 0] = GameForm::gameform->elephantB2;
         board[3, 0] = GameForm::gameform->advisorB1;    board[5, 0] = GameForm::gameform->advisorB2;

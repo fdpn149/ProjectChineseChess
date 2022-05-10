@@ -5,9 +5,10 @@ namespace ProjectChineseChess
 	//пе
 	ref class Cannon : public Chess
 	{
+		void findOpponent(Board^ board, Direction direct, Point^ pos);
 	public:
-		Cannon(Player player, int id) : Chess(player, id) {}
-		void CanMove(Board^ board, PictureBox^ piece) override {}
+		Cannon(Color color, int id) : Chess(color, id) {}
+		void CanMove(Board^ board, PictureBox^ piece) override;
 		void Move() override {}
 	};
 

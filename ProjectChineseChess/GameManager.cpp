@@ -12,21 +12,21 @@ namespace ProjectChineseChess
 	void GameManager::pieceInit()
 	{
 		//建立各種棋子的物件
-		Chariot^ chariotB1 = gcnew Chariot(Player::BLACK, 1), ^ chariotB2 = gcnew Chariot(Player::BLACK, 2);
-		Horse^ horseB1 = gcnew Horse(Player::BLACK, 1), ^ horseB2 = gcnew Horse(Player::BLACK, 2);
-		Elephant^ elephantB1 = gcnew Elephant(Player::BLACK, 1), ^ elephantB2 = gcnew Elephant(Player::BLACK, 2);
-		Advisor^ advisorB1 = gcnew Advisor(Player::BLACK, 1), ^ advisorB2 = gcnew Advisor(Player::BLACK, 2);
-		Cannon^ cannonB1 = gcnew Cannon(Player::BLACK, 1), ^ cannonB2 = gcnew Cannon(Player::BLACK, 2);
-		Soldier^ soldierB1 = gcnew Soldier(Player::BLACK, 1), ^ soldierB2 = gcnew Soldier(Player::BLACK, 2), ^ soldierB3 = gcnew Soldier(Player::BLACK, 3);
-		Soldier^ soldierB4 = gcnew Soldier(Player::BLACK, 4), ^ soldierB5 = gcnew Soldier(Player::BLACK, 5);
-		General^ generalB1 = gcnew General(Player::BLACK, 1), ^ generalR1 = gcnew General(Player::RED, 1);
-		Chariot^ chariotR1 = gcnew Chariot(Player::RED, 1), ^ chariotR2 = gcnew Chariot(Player::RED, 2);
-		Horse^ horseR1 = gcnew Horse(Player::RED, 1), ^ horseR2 = gcnew Horse(Player::RED, 2);
-		Elephant^ elephantR1 = gcnew Elephant(Player::RED, 1), ^ elephantR2 = gcnew Elephant(Player::RED, 2);
-		Advisor^ advisorR1 = gcnew Advisor(Player::RED, 1), ^ advisorR2 = gcnew Advisor(Player::RED, 2);
-		Cannon^ cannonR1 = gcnew Cannon(Player::RED, 1), ^ cannonR2 = gcnew Cannon(Player::RED, 2);
-		Soldier^ soldierR1 = gcnew Soldier(Player::RED, 1), ^ soldierR2 = gcnew Soldier(Player::RED, 2), ^ soldierR3 = gcnew Soldier(Player::RED, 3);
-		Soldier^ soldierR4 = gcnew Soldier(Player::RED, 4), ^ soldierR5 = gcnew Soldier(Player::RED, 5);
+		Chariot^ chariotB1 = gcnew Chariot(Color::BLACK, 1), ^ chariotB2 = gcnew Chariot(Color::BLACK, 2);
+		Horse^ horseB1 = gcnew Horse(Color::BLACK, 1), ^ horseB2 = gcnew Horse(Color::BLACK, 2);
+		Elephant^ elephantB1 = gcnew Elephant(Color::BLACK, 1), ^ elephantB2 = gcnew Elephant(Color::BLACK, 2);
+		Advisor^ advisorB1 = gcnew Advisor(Color::BLACK, 1), ^ advisorB2 = gcnew Advisor(Color::BLACK, 2);
+		Cannon^ cannonB1 = gcnew Cannon(Color::BLACK, 1), ^ cannonB2 = gcnew Cannon(Color::BLACK, 2);
+		Soldier^ soldierB1 = gcnew Soldier(Color::BLACK, 1), ^ soldierB2 = gcnew Soldier(Color::BLACK, 2), ^ soldierB3 = gcnew Soldier(Color::BLACK, 3);
+		Soldier^ soldierB4 = gcnew Soldier(Color::BLACK, 4), ^ soldierB5 = gcnew Soldier(Color::BLACK, 5);
+		General^ generalB1 = gcnew General(Color::BLACK, 1), ^ generalR1 = gcnew General(Color::RED, 1);
+		Chariot^ chariotR1 = gcnew Chariot(Color::RED, 1), ^ chariotR2 = gcnew Chariot(Color::RED, 2);
+		Horse^ horseR1 = gcnew Horse(Color::RED, 1), ^ horseR2 = gcnew Horse(Color::RED, 2);
+		Elephant^ elephantR1 = gcnew Elephant(Color::RED, 1), ^ elephantR2 = gcnew Elephant(Color::RED, 2);
+		Advisor^ advisorR1 = gcnew Advisor(Color::RED, 1), ^ advisorR2 = gcnew Advisor(Color::RED, 2);
+		Cannon^ cannonR1 = gcnew Cannon(Color::RED, 1), ^ cannonR2 = gcnew Cannon(Color::RED, 2);
+		Soldier^ soldierR1 = gcnew Soldier(Color::RED, 1), ^ soldierR2 = gcnew Soldier(Color::RED, 2), ^ soldierR3 = gcnew Soldier(Color::RED, 3);
+		Soldier^ soldierR4 = gcnew Soldier(Color::RED, 4), ^ soldierR5 = gcnew Soldier(Color::RED, 5);
 		//將各種棋子的物件加進on_board
 		on_board["chariotB1"] = chariotB1; on_board["chariotB2"] = chariotB2; on_board["horseB1"] = horseB1; on_board["horseB2"] = horseB2;
 		on_board["elephantB1"] = elephantB1; on_board["elephantB2"] = elephantB2; on_board["advisorB1"] = advisorB1; on_board["advisorB2"] = advisorB2;
@@ -72,12 +72,17 @@ namespace ProjectChineseChess
 		else if (state == State::PIECE_CLICKED)
 		{
 			viewer->PieceClick(piece);  //讓棋子變色
-			on_board[piece->Name]->CanMove(board,piece);
+			on_board[piece->Name]->CanMove(board,piece);  //尋找可以走的路徑
+			viewer->ShowGreens();  //顯示綠色點
+			viewer->ShowReds();  //顯示紅色點
+			
 		}
 		//若同一棋子被點兩下
 		else
 		{
 			viewer->PieceUnclick(piece);  //將棋子顏色改回來
+			viewer->RemoveGreens();  //移除綠色點
+			viewer->RemoveReds();  //移除紅色點
 		}
 		lastClicked = piece;  //上一個被點的棋子設成現在的棋子
 	}
@@ -87,6 +92,8 @@ namespace ProjectChineseChess
 		//若有棋子已被點
 		if (state == State::PIECE_CLICKED)
 			viewer->PieceUnclick(lastClicked);  //將棋子顏改回來
+		viewer->RemoveGreens();  //移除綠色點
+		viewer->RemoveReds();  //移除紅色點
 		state = State::NONE;  //將狀態改回來
 	}
 }

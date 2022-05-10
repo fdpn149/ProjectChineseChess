@@ -110,7 +110,7 @@ namespace ProjectChineseChess
 		this->chariotB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->chariotB1->TabIndex = 0;
 		this->chariotB1->TabStop = false;
-		this->chariotB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->chariotB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// horseB1
 		// 
@@ -122,7 +122,7 @@ namespace ProjectChineseChess
 		this->horseB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->horseB1->TabIndex = 1;
 		this->horseB1->TabStop = false;
-		this->horseB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->horseB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// elephantB1
 		// 
@@ -134,7 +134,7 @@ namespace ProjectChineseChess
 		this->elephantB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->elephantB1->TabIndex = 2;
 		this->elephantB1->TabStop = false;
-		this->elephantB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->elephantB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// advisorB1
 		// 
@@ -146,7 +146,7 @@ namespace ProjectChineseChess
 		this->advisorB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->advisorB1->TabIndex = 3;
 		this->advisorB1->TabStop = false;
-		this->advisorB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->advisorB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// generalB1
 		// 
@@ -158,7 +158,7 @@ namespace ProjectChineseChess
 		this->generalB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->generalB1->TabIndex = 4;
 		this->generalB1->TabStop = false;
-		this->generalB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->generalB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// advisorB2
 		// 
@@ -170,7 +170,7 @@ namespace ProjectChineseChess
 		this->advisorB2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->advisorB2->TabIndex = 5;
 		this->advisorB2->TabStop = false;
-		this->advisorB2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->advisorB2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// elephantB2
 		// 
@@ -182,7 +182,7 @@ namespace ProjectChineseChess
 		this->elephantB2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->elephantB2->TabIndex = 6;
 		this->elephantB2->TabStop = false;
-		this->elephantB2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->elephantB2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// horseB2
 		// 
@@ -194,7 +194,7 @@ namespace ProjectChineseChess
 		this->horseB2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->horseB2->TabIndex = 7;
 		this->horseB2->TabStop = false;
-		this->horseB2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->horseB2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// chariotB2
 		// 
@@ -206,7 +206,7 @@ namespace ProjectChineseChess
 		this->chariotB2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->chariotB2->TabIndex = 8;
 		this->chariotB2->TabStop = false;
-		this->chariotB2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->chariotB2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// cannonB1
 		// 
@@ -218,7 +218,7 @@ namespace ProjectChineseChess
 		this->cannonB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->cannonB1->TabIndex = 9;
 		this->cannonB1->TabStop = false;
-		this->cannonB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->cannonB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// cannonB2
 		// 
@@ -230,7 +230,7 @@ namespace ProjectChineseChess
 		this->cannonB2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->cannonB2->TabIndex = 10;
 		this->cannonB2->TabStop = false;
-		this->cannonB2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->cannonB2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierB1
 		// 
@@ -242,7 +242,7 @@ namespace ProjectChineseChess
 		this->soldierB1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierB1->TabIndex = 11;
 		this->soldierB1->TabStop = false;
-		this->soldierB1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierB1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierB2
 		// 
@@ -254,7 +254,7 @@ namespace ProjectChineseChess
 		this->soldierB2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierB2->TabIndex = 12;
 		this->soldierB2->TabStop = false;
-		this->soldierB2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierB2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierB3
 		// 
@@ -266,7 +266,7 @@ namespace ProjectChineseChess
 		this->soldierB3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierB3->TabIndex = 13;
 		this->soldierB3->TabStop = false;
-		this->soldierB3->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierB3->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierB4
 		// 
@@ -278,7 +278,7 @@ namespace ProjectChineseChess
 		this->soldierB4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierB4->TabIndex = 14;
 		this->soldierB4->TabStop = false;
-		this->soldierB4->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierB4->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierB5
 		// 
@@ -290,7 +290,7 @@ namespace ProjectChineseChess
 		this->soldierB5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierB5->TabIndex = 15;
 		this->soldierB5->TabStop = false;
-		this->soldierB5->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierB5->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierR1
 		// 
@@ -302,7 +302,7 @@ namespace ProjectChineseChess
 		this->soldierR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierR1->TabIndex = 16;
 		this->soldierR1->TabStop = false;
-		this->soldierR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierR2
 		// 
@@ -314,7 +314,7 @@ namespace ProjectChineseChess
 		this->soldierR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierR2->TabIndex = 17;
 		this->soldierR2->TabStop = false;
-		this->soldierR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierR3
 		// 
@@ -326,7 +326,7 @@ namespace ProjectChineseChess
 		this->soldierR3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierR3->TabIndex = 18;
 		this->soldierR3->TabStop = false;
-		this->soldierR3->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR3->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierR4
 		// 
@@ -338,7 +338,7 @@ namespace ProjectChineseChess
 		this->soldierR4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierR4->TabIndex = 19;
 		this->soldierR4->TabStop = false;
-		this->soldierR4->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR4->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// soldierR5
 		// 
@@ -350,7 +350,7 @@ namespace ProjectChineseChess
 		this->soldierR5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->soldierR5->TabIndex = 20;
 		this->soldierR5->TabStop = false;
-		this->soldierR5->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->soldierR5->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// cannonR1
 		// 
@@ -362,7 +362,7 @@ namespace ProjectChineseChess
 		this->cannonR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->cannonR1->TabIndex = 21;
 		this->cannonR1->TabStop = false;
-		this->cannonR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->cannonR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// cannonR2
 		// 
@@ -374,7 +374,7 @@ namespace ProjectChineseChess
 		this->cannonR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->cannonR2->TabIndex = 22;
 		this->cannonR2->TabStop = false;
-		this->cannonR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->cannonR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// chariotR1
 		// 
@@ -386,7 +386,7 @@ namespace ProjectChineseChess
 		this->chariotR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->chariotR1->TabIndex = 23;
 		this->chariotR1->TabStop = false;
-		this->chariotR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->chariotR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// horseR1
 		// 
@@ -398,7 +398,7 @@ namespace ProjectChineseChess
 		this->horseR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->horseR1->TabIndex = 24;
 		this->horseR1->TabStop = false;
-		this->horseR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->horseR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// elephantR1
 		// 
@@ -410,7 +410,7 @@ namespace ProjectChineseChess
 		this->elephantR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->elephantR1->TabIndex = 25;
 		this->elephantR1->TabStop = false;
-		this->elephantR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->elephantR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// advisorR1
 		// 
@@ -422,7 +422,7 @@ namespace ProjectChineseChess
 		this->advisorR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->advisorR1->TabIndex = 26;
 		this->advisorR1->TabStop = false;
-		this->advisorR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->advisorR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// generalR1
 		// 
@@ -434,7 +434,7 @@ namespace ProjectChineseChess
 		this->generalR1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->generalR1->TabIndex = 27;
 		this->generalR1->TabStop = false;
-		this->generalR1->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->generalR1->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// chariotR2
 		// 
@@ -446,7 +446,7 @@ namespace ProjectChineseChess
 		this->chariotR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->chariotR2->TabIndex = 28;
 		this->chariotR2->TabStop = false;
-		this->chariotR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->chariotR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// horseR2
 		// 
@@ -458,7 +458,7 @@ namespace ProjectChineseChess
 		this->horseR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->horseR2->TabIndex = 29;
 		this->horseR2->TabStop = false;
-		this->horseR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->horseR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// elephantR2
 		// 
@@ -470,7 +470,7 @@ namespace ProjectChineseChess
 		this->elephantR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->elephantR2->TabIndex = 30;
 		this->elephantR2->TabStop = false;
-		this->elephantR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->elephantR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// advisorR2
 		// 
@@ -482,7 +482,7 @@ namespace ProjectChineseChess
 		this->advisorR2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 		this->advisorR2->TabIndex = 31;
 		this->advisorR2->TabStop = false;
-		this->advisorR2->Click += gcnew System::EventHandler(this, &GameForm::piece_Click);
+		this->advisorR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
 		// GameForm
 		// 
@@ -577,7 +577,7 @@ namespace ProjectChineseChess
 	}
 
 	//當棋子被按下
-	inline System::Void GameForm::piece_Click(System::Object^ sender, System::EventArgs^ e)
+	inline System::Void GameForm::Piece_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		PictureBox^ piece = (PictureBox^)sender;  //將piece設為被點擊的棋子
 		game->PieceClick(piece);  //執行棋子被點擊後所需做的事
@@ -588,6 +588,11 @@ namespace ProjectChineseChess
 	inline System::Void GameForm::GameForm_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		game->FormClick();  //執行視窗被點擊後所需做的事
+	}
+
+	System::Void GameForm::Green_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		MessageBox::Show("");
 	}
 
 }

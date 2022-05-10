@@ -14,6 +14,10 @@ namespace ProjectChineseChess {
 		Viewer();
 		void PieceClick(PictureBox^ piece);  //棋子被點擊
 		void PieceUnclick(PictureBox^ piece);  //視窗被點擊
+		void ShowGreens();
+		void RemoveGreens();
+		void ShowReds();
+		void RemoveReds();
 		//void test(System::Windows::Forms::PictureBox^ p);  //測試用
 	};
 

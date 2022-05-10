@@ -6,7 +6,7 @@ namespace ProjectChineseChess
 	ref class General : public Chess
 	{
 	public:
-		General(Player player, int id) : Chess(player, id) {}
+		General(Color color, int id) : Chess(color, id) {}
 		void CanMove(Board^ board, PictureBox^ piece) override {}
 		void Move() override {}
 	};

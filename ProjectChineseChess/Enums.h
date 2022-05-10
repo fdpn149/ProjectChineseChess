@@ -1,13 +1,20 @@
 #pragma once
-
-//ª¬ºA
-enum class State
+namespace ProjectChineseChess
 {
-	MOVE_PIECE, PIECE_CLICKED, NONE
-};
+	//ª¬ºA
+	enum class State
+	{
+		MOVE_PIECE, PIECE_CLICKED, NONE
+	};
 
-//ª±®a
-enum class Player
-{
-	BLACK, RED
-};
+	//ÃC¦â
+	enum class Color
+	{
+		BLACK, RED
+	};
+
+	enum class Direction
+	{
+		UP, DOWN, LEFT, RIGHT
+	};
+}

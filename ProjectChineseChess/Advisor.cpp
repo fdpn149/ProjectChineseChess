@@ -2,7 +2,7 @@
 
 namespace ProjectChineseChess
 {
-	Advisor::Advisor(Player player, int id) : Chess(player, id)
+	Advisor::Advisor(Color color, int id) : Chess(color, id)
 	{
 	}
 
@@ -11,7 +11,7 @@ namespace ProjectChineseChess
 		Point^ pos = board->ToBoardCoord(piece->Location);
 		
 		//如果是紅方，不能移動到紅方棋子上
-		if (this->player == Player::RED)
+		if (this->color == Color::RED)
 		{
 			
 		}

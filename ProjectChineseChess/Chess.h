@@ -8,12 +8,14 @@ namespace ProjectChineseChess
 	ref class Chess abstract
 	{
 	protected:
-		Player player;  //玩家(BLACK & RED)
+		Color color;  //玩家(BLACK & RED)
 		int id;  //棋子的id
 	public:
-		Chess(Player player, int id);
+		Chess(Color player, int id);
 		virtual void CanMove(Board^ board, PictureBox^ piece) abstract;  //是否可移動
 		virtual void Move() abstract;  //棋子的移動方法
+		Color PieceColor(PictureBox^ piece);
+		Color OpponentColor(Color color);
 	};
 
 }

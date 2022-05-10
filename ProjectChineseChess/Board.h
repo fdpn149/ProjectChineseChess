@@ -11,5 +11,6 @@ namespace ProjectChineseChess {
 		array<PictureBox^, 2>^ board = gcnew array<PictureBox^, 2>(9, 10);
 		Board();
 		Point^ ToBoardCoord(Point^ formCoord);
+		Point^ ToFormCoord(Point^ boardCoord);
 	};
 }

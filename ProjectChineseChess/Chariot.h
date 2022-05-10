@@ -6,7 +6,7 @@ namespace ProjectChineseChess
 	ref class Chariot : public Chess
 	{
 	public:
-		Chariot(Player player, int id) : Chess(player, id) {}
+		Chariot(Color color, int id) : Chess(color, id) {}
 		void CanMove(Board^ board, PictureBox^ piece) override {}
 		void Move() override {}
 	};

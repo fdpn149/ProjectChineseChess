@@ -31,7 +31,6 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::PictureBox^ elephantB1;
 	public: System::Windows::Forms::PictureBox^ advisorB1;
 	public: System::Windows::Forms::PictureBox^ generalB1;
-
 	public: System::Windows::Forms::PictureBox^ advisorB2;
 	public: System::Windows::Forms::PictureBox^ elephantB2;
 	public: System::Windows::Forms::PictureBox^ horseB2;
@@ -39,32 +38,15 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::PictureBox^ cannonB1;
 	public: System::Windows::Forms::PictureBox^ cannonB2;
 	public: System::Windows::Forms::PictureBox^ soldierB1;
-
-
-
-
-
-
-
-
-
-
-
-
 	public: System::Windows::Forms::PictureBox^ soldierB2;
 	public: System::Windows::Forms::PictureBox^ soldierB3;
 	public: System::Windows::Forms::PictureBox^ soldierB4;
 	public: System::Windows::Forms::PictureBox^ soldierB5;
 	public: System::Windows::Forms::PictureBox^ soldierR1;
 	public: System::Windows::Forms::PictureBox^ soldierR2;
-
-
 	public: System::Windows::Forms::PictureBox^ soldierR3;
 	public: System::Windows::Forms::PictureBox^ soldierR4;
 	public: System::Windows::Forms::PictureBox^ soldierR5;
-
-
-
 	public: System::Windows::Forms::PictureBox^ cannonR1;
 	public: System::Windows::Forms::PictureBox^ cannonR2;
 	public: System::Windows::Forms::PictureBox^ chariotR1;
@@ -72,35 +54,10 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::PictureBox^ elephantR1;
 	public: System::Windows::Forms::PictureBox^ advisorR1;
 	public: System::Windows::Forms::PictureBox^ generalR1;
-
 	public: System::Windows::Forms::PictureBox^ chariotR2;
 	public: System::Windows::Forms::PictureBox^ horseR2;
 	public: System::Windows::Forms::PictureBox^ elephantR2;
 	public: System::Windows::Forms::PictureBox^ advisorR2;
-	private:
-
-	private:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// 設計工具所需的變數。
@@ -115,7 +72,8 @@ namespace ProjectChineseChess {
 		void InitializeComponent(void);
 #pragma endregion
 	private: System::Void GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
-	private: System::Void piece_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Piece_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void GameForm_Click(System::Object^ sender, System::EventArgs^ e);
+	public: System::Void Green_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

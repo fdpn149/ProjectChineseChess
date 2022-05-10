@@ -6,8 +6,9 @@ namespace ProjectChineseChess
 	ref class Soldier : public Chess
 	{
 		bool crossedRiver;
+		void checkFront(Board^ board, Point^ pos);
 	public:
-		Soldier(Player player, int id);
+		Soldier(Color color, int id);
 		void CanMove(Board^ board, PictureBox^ piece) override;
 		void Move() override {}
 	};

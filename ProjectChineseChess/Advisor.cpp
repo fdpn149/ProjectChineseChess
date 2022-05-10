@@ -50,10 +50,5 @@ namespace ProjectChineseChess
 				}
 			}
 		}
-		
-		
-		
-
 	}
-	
 }

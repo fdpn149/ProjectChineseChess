@@ -13,7 +13,7 @@ namespace ProjectChineseChess
         board[1, 2] = GameForm::gameform->cannonB1;     board[7, 2] = GameForm::gameform->cannonB2;
         board[0, 3] = GameForm::gameform->soldierB1;    board[8, 3] = GameForm::gameform->soldierB5;
         board[2, 3] = GameForm::gameform->soldierB2;    board[6, 3] = GameForm::gameform->soldierB4;
-        board[4, 8] = GameForm::gameform->soldierB3;    board[4, 1] = GameForm::gameform->soldierR3;
+        board[4, 3] = GameForm::gameform->soldierB3;    board[4, 6] = GameForm::gameform->soldierR3;
         board[2, 6] = GameForm::gameform->soldierR2;    board[6, 6] = GameForm::gameform->soldierR4;
         board[0, 6] = GameForm::gameform->soldierR1;    board[8, 6] = GameForm::gameform->soldierR5;
         board[1, 7] = GameForm::gameform->cannonR1;     board[7, 7] = GameForm::gameform->cannonR2;

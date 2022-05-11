@@ -49,7 +49,7 @@ namespace ProjectChineseChess
 			j += dir_y;
 		}
 	}
-	void Cannon::CanMove(Board^ board, PictureBox^ piece)
+	void Cannon::Move(Board^ board, PictureBox^ piece)
 	{
 		Point^ pos = board->ToBoardCoord(piece->Location);
 
@@ -58,4 +58,5 @@ namespace ProjectChineseChess
 		findOpponent(board, Direction::LEFT, pos);
 		findOpponent(board, Direction::RIGHT, pos);
 	}
+	
 }

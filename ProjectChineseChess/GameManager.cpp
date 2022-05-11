@@ -40,13 +40,34 @@ namespace ProjectChineseChess
 
 	void GameManager::changeState(PictureBox^ nowPiece)
 	{
+		if (state != State::PIECE_CLICKED)
+		{
+			//如果點的棋子跟現在輪到的顏色不一樣
+			if ((current_player == 0 && on_board[nowPiece->Name]->PieceColor(nowPiece) == Color::BLACK) ||
+				(current_player == 1 && on_board[nowPiece->Name]->PieceColor(nowPiece) == Color::RED))
+			{
+				state = State::NONE;
+				return;
+			}
+		}
+
 		//若同一棋子被點兩下
-		if (state == State::PIECE_CLICKED && lastClicked->Name == nowPiece->Name)
+		if (state == State::PIECE_CLICKED && lastPiece->Name == nowPiece->Name)
 			state = State::NONE;
 		//若點兩顆不同的棋子
 		else if (state == State::PIECE_CLICKED)
 		{
-			state = State::MOVE_PIECE;
+			//尋找第二顆點的棋子是否是紅色
+			for (int i = 0; i < red->size(); i++)
+			{
+				if (red->at(i) == nowPiece)  //如果有找到
+				{
+					state = State::MOVE_PIECE;
+					return;
+				}
+			}
+			//沒找到
+			state = State::NONE;
 		}
 		//若只點了一顆棋子
 		else
@@ -58,6 +79,7 @@ namespace ProjectChineseChess
 		viewer = gcnew Viewer();
 		board = gcnew Board();
 		pieceInit();
+		current_player = 0;
 	}
 
 	void GameManager::PieceClick(PictureBox^ piece)
@@ -66,13 +88,20 @@ namespace ProjectChineseChess
 		//若要移動棋子
 		if (state == State::MOVE_PIECE)
 		{
-			
+			on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
+			viewer->RemovePiece(piece);
+			viewer->SetPiece(lastPiece, piece->Location);
+			viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
+			viewer->RemoveGreens();  //移除綠色點
+			viewer->RemoveReds();  //移除紅色點
+			state = State::NONE;  //將狀態改回來S
+			current_player = !current_player;
 		}
 		//若只點一顆棋子
 		else if (state == State::PIECE_CLICKED)
 		{
 			viewer->PieceClick(piece);  //讓棋子變色
-			on_board[piece->Name]->CanMove(board,piece);  //尋找可以走的路徑
+			on_board[piece->Name]->Move(board,piece);  //尋找可以走的路徑
 			viewer->ShowGreens();  //顯示綠色點
 			viewer->ShowReds();  //顯示紅色點
 			
@@ -80,20 +109,33 @@ namespace ProjectChineseChess
 		//若同一棋子被點兩下
 		else
 		{
+			if(lastPiece != nullptr)
+				viewer->PieceUnclick(lastPiece);  //將上個棋子的顏色改回來
 			viewer->PieceUnclick(piece);  //將棋子顏色改回來
 			viewer->RemoveGreens();  //移除綠色點
 			viewer->RemoveReds();  //移除紅色點
 		}
-		lastClicked = piece;  //上一個被點的棋子設成現在的棋子
+		lastPiece = piece;  //上一個被點的棋子設成現在的棋子
 	}
 
 	void GameManager::FormClick()
 	{
 		//若有棋子已被點
 		if (state == State::PIECE_CLICKED)
-			viewer->PieceUnclick(lastClicked);  //將棋子顏改回來
+			viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
 		viewer->RemoveGreens();  //移除綠色點
 		viewer->RemoveReds();  //移除紅色點
 		state = State::NONE;  //將狀態改回來
+	}
+
+	void GameManager::GreenClick(PictureBox^ piece)
+	{
+		on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
+		viewer->SetPiece(lastPiece, piece->Location);
+		viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
+		viewer->RemoveGreens();  //移除綠色點
+		viewer->RemoveReds();  //移除紅色點
+		state = State::NONE;  //將狀態改回來S
+		current_player = !current_player;
 	}
 }

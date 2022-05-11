@@ -56,7 +56,7 @@ namespace ProjectChineseChess
 			GameManager::red->push_back(board->board[X, Y]);
 	}
 
-	void Horse::CanMove(Board^ board, PictureBox^ piece)
+	void Horse::Move(Board^ board, PictureBox^ piece)
 	{
 		Point^ pos = board->ToBoardCoord(piece->Location);
 

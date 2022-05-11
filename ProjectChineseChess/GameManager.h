@@ -18,7 +18,7 @@ namespace ProjectChineseChess
 		Board^ board;
 		Viewer^ viewer;
 		State state = State::NONE;  //現在的狀態
-		PictureBox^ lastClicked;  //上一個被點擊的棋子
+		PictureBox^ lastPiece;  //上一個被點擊的棋子
 		void pieceInit();  //建立棋子物件，並加到on_board中
 		void changeState(PictureBox^ nowPiece);  //更改狀態
 	public:
@@ -27,5 +27,6 @@ namespace ProjectChineseChess
 		GameManager();
 		void PieceClick(PictureBox^ piece);  //棋子被點擊
 		void FormClick();  //視窗被點擊
+		void GreenClick(PictureBox^ piece);  //綠色被點擊
 	};
 }

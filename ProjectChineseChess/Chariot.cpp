@@ -47,7 +47,7 @@ namespace ProjectChineseChess
 			j += dir_y;
 		}
 	}
-	void Chariot::CanMove(Board^ board, PictureBox^ piece)
+	void Chariot::Move(Board^ board, PictureBox^ piece)
 	{
 		Point^ pos = board->ToBoardCoord(piece->Location);
 

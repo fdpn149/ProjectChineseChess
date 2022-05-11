@@ -11,8 +11,7 @@ namespace ProjectChineseChess
 		void checkCrossRiver(Point^ pos);
 	public:
 		Soldier(Color color, int id);
-		void CanMove(Board^ board, PictureBox^ piece) override;
-		void Move() override {}
+		void Move(Board^ board, PictureBox^ piece) override;
 	};
 
 }

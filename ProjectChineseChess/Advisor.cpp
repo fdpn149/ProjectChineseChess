@@ -88,7 +88,7 @@ namespace ProjectChineseChess
 	}
 
 
-	void Advisor::CanMove(Board^ board, PictureBox^ piece)
+	void Advisor::Move(Board^ board, PictureBox^ piece)
 	{
 		Point^ pos = board->ToBoardCoord(piece->Location);
 		

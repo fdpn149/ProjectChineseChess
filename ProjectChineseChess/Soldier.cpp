@@ -63,7 +63,7 @@ namespace ProjectChineseChess
 		crossedRiver = false;
 	}
 
-	void Soldier::CanMove(Board^ board, PictureBox^ piece)
+	void Soldier::Move(Board^ board, PictureBox^ piece)
 	{
 		Point^ pos = board->ToBoardCoord(piece->Location);
 

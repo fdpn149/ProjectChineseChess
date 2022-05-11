@@ -10,8 +10,7 @@ namespace ProjectChineseChess
 		void pushGreenAndRed(Board^ board, int X, int Y);
 	public:
 		Horse(Color color, int id) : Chess(color, id) {}
-		void CanMove(Board^ board, PictureBox^ piece) override;
-		void Move() override {}
+		void Move(Board^ board, PictureBox^ piece) override;
 	};
 
 }

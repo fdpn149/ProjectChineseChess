@@ -1,6 +1,7 @@
 #pragma once
 
 using System::Windows::Forms::PictureBox;
+using System::Drawing::Point;
 
 namespace ProjectChineseChess {
 
@@ -18,6 +19,8 @@ namespace ProjectChineseChess {
 		void RemoveGreens();
 		void ShowReds();
 		void RemoveReds();
+		void RemovePiece(PictureBox^ piece);
+		void SetPiece(PictureBox^ piece, Point^ toPos);
 		//void test(System::Windows::Forms::PictureBox^ p);  //´ú¸Õ¥Î
 	};
 

@@ -59,6 +59,16 @@ namespace ProjectChineseChess
 		}
 	}
 
+	void Viewer::RemovePiece(PictureBox^ piece)
+	{
+		piece->Visible = false;
+	}
+
+	void Viewer::SetPiece(PictureBox^ piece, Point^ toPos)
+	{
+		piece->Location = *toPos;
+	}
+
 	//void Viewer::test(PictureBox^ p)
 	//{
 	//	//將傳入的棋子設為紅色

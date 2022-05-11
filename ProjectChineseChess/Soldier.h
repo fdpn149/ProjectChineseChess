@@ -7,6 +7,8 @@ namespace ProjectChineseChess
 	{
 		bool crossedRiver;
 		void checkFront(Board^ board, Point^ pos);
+		void checkSide(Board^ board, Point^ pos, int direct);
+		void checkCrossRiver(Point^ pos);
 	public:
 		Soldier(Color color, int id);
 		void CanMove(Board^ board, PictureBox^ piece) override;

@@ -16,10 +16,4 @@ namespace ProjectChineseChess
 		else
 			return Color::BLACK;
 	}
-	Color Chess::OpponentColor(Color color)
-	{
-		if (color == Color::BLACK)
-			return Color::RED;
-		return Color::BLACK;
-	}
 }

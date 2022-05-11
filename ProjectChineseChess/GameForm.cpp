@@ -260,7 +260,7 @@ namespace ProjectChineseChess
 		// 
 		this->soldierB3->BackColor = System::Drawing::Color::Transparent;
 		this->soldierB3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierB3.BackgroundImage")));
-		this->soldierB3->Location = System::Drawing::Point(340, 265);
+		this->soldierB3->Location = System::Drawing::Point(340, 640);
 		this->soldierB3->Name = L"soldierB3";
 		this->soldierB3->Size = System::Drawing::Size(70, 70);
 		this->soldierB3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -320,7 +320,7 @@ namespace ProjectChineseChess
 		// 
 		this->soldierR3->BackColor = System::Drawing::Color::Transparent;
 		this->soldierR3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soldierR3.BackgroundImage")));
-		this->soldierR3->Location = System::Drawing::Point(340, 490);
+		this->soldierR3->Location = System::Drawing::Point(340, 115);
 		this->soldierR3->Name = L"soldierR3";
 		this->soldierR3->Size = System::Drawing::Size(70, 70);
 		this->soldierR3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;

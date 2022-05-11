@@ -41,8 +41,8 @@ namespace ProjectChineseChess
 				if (PieceColor(board->board[i, j]) != color)
 				{
 					GameManager::red->push_back(board->board[i, j]);  //將前面的棋子存起來
-					return;
 				}
+				return;
 			}
 
 			i += dir_x;

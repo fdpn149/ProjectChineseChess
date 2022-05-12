@@ -494,7 +494,7 @@ namespace ProjectChineseChess
 		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->FileToolStripMenuItem });
 		this->menuStrip1->Location = System::Drawing::Point(0, 0);
 		this->menuStrip1->Name = L"menuStrip1";
-		this->menuStrip1->Size = System::Drawing::Size(933, 24);
+		this->menuStrip1->Size = System::Drawing::Size(752, 24);
 		this->menuStrip1->TabIndex = 32;
 		this->menuStrip1->Text = L"menuStrip1";
 		// 
@@ -530,7 +530,7 @@ namespace ProjectChineseChess
 			static_cast<System::Int32>(static_cast<System::Byte>(128)));
 		this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 		this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-		this->ClientSize = System::Drawing::Size(933, 825);
+		this->ClientSize = System::Drawing::Size(752, 825);
 		this->Controls->Add(this->advisorR2);
 		this->Controls->Add(this->elephantR2);
 		this->Controls->Add(this->horseR2);
@@ -565,6 +565,7 @@ namespace ProjectChineseChess
 		this->Controls->Add(this->chariotB1);
 		this->Controls->Add(this->menuStrip1);
 		this->DoubleBuffered = true;
+		this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 		this->MainMenuStrip = this->menuStrip1;
 		this->MaximizeBox = false;
 		this->Name = L"GameForm";

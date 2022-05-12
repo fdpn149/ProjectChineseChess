@@ -120,6 +120,8 @@ namespace ProjectChineseChess
 
 	void Elephant::Move(Board^ board, PictureBox^ piece)
 	{
+		if (!kingsFaceToFace(board, piece))  //¤ý¨£¤ý§PÂ_
+			return;
 		Point^ pos = Board::ToBoardCoord(piece->Location);
 
 		//¥ª¤W

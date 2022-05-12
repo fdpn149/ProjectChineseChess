@@ -10,6 +10,7 @@ namespace ProjectChineseChess
 	public:
 		General(Color color, int id) : Chess(color, id) {}
 		void Move(Board^ board, PictureBox^ piece) override;
+		bool kingsFaceToFace(Board^ board, Direction direct, int X, int Y);
 	};
 
 }

@@ -73,6 +73,8 @@ namespace ProjectChineseChess
 		checkFront(board, pos);  //檢查前面
 		if (crossedRiver)  //如果已經過河
 		{
+			if (!kingsFaceToFace(board, piece))  //王見王判斷
+				return;
 			checkSide(board, pos, 1);  //檢查右邊
 			checkSide(board, pos, -1);  //檢查左邊
 		}

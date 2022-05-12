@@ -16,6 +16,8 @@ namespace ProjectChineseChess
 		virtual void Move(Board^ board, PictureBox^ piece) abstract;  //是否可移動
 		void OnMove(Board^ board, Point^ fromPos, Point^ toPos);  //棋子的移動方法
 		Color PieceColor(PictureBox^ piece);
+
+		bool kingsFaceToFace(Board^ board, PictureBox^ piece);  //判斷王見王，false代表會出現王見王的情況
 	};
 
 }

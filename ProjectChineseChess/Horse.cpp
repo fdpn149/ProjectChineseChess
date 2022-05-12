@@ -58,6 +58,9 @@ namespace ProjectChineseChess
 
 	void Horse::Move(Board^ board, PictureBox^ piece)
 	{
+		if (!kingsFaceToFace(board, piece))  //д¤игд¤зP┬_
+			return;
+
 		Point^ pos = board->ToBoardCoord(piece->Location);
 
 		//UP_LEFT

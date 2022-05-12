@@ -7,6 +7,7 @@ namespace ProjectChineseChess
 	{
 		bool inRange(Direction direct, int X, int Y);
 		void pushGreenAndRed(Board^ board, int X, int Y);
+		bool kingsFaceToFace(Board^ board, Direction direct, int X, int Y);
 	public:
 		General(Color color, int id) : Chess(color, id) {}
 		void Move(Board^ board, PictureBox^ piece) override;

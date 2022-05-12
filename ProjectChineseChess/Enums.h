@@ -10,7 +10,7 @@ namespace ProjectChineseChess
 	//ÃC¦â
 	enum class Color
 	{
-		BLACK, RED
+		RED = 1, BLACK = 2
 	};
 
 	enum class Direction

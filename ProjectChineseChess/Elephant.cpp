@@ -110,7 +110,7 @@ namespace ProjectChineseChess
 		if (board->board[X, Y] == nullptr)
 		{
 			PictureBox^ greenDot = gcnew PictureBox();  //建立一個綠點
-			Point^ formPoint = board->ToFormCoord(Point(X, Y));  //綠點在視窗上的位置
+			Point^ formPoint = Board::ToFormCoord(Point(X, Y));  //綠點在視窗上的位置
 			greenDot->Location = *formPoint;  //設定綠點的位置
 			GameManager::green->push_back(greenDot);  //將綠點存起來
 		}
@@ -120,7 +120,7 @@ namespace ProjectChineseChess
 
 	void Elephant::Move(Board^ board, PictureBox^ piece)
 	{
-		Point^ pos = board->ToBoardCoord(piece->Location);
+		Point^ pos = Board::ToBoardCoord(piece->Location);
 
 		//左上
 		int X = pos->X - 2; int Y = pos->Y - 2;

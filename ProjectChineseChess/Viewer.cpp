@@ -69,6 +69,11 @@ namespace ProjectChineseChess
 		piece->Location = *toPos;
 	}
 
+	void Viewer::ShowMessage(String^ m)
+	{
+		System::Windows::Forms::MessageBox::Show(m);
+	}
+
 	//void Viewer::test(PictureBox^ p)
 	//{
 	//	//將傳入的棋子設為紅色

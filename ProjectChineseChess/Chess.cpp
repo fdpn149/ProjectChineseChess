@@ -9,8 +9,8 @@ namespace ProjectChineseChess
 	}
 	void Chess::OnMove(Board^ board, Point^ fromPos, Point^ toPos)
 	{
-		Point^ fpos = board->ToBoardCoord(fromPos);
-		Point^ tpos = board->ToBoardCoord(toPos);
+		Point^ fpos = Board::ToBoardCoord(fromPos);
+		Point^ tpos = Board::ToBoardCoord(toPos);
 		board->board[tpos->X, tpos->Y] = board->board[fpos->X, fpos->Y];
 		board->board[fpos->X, fpos->Y] = nullptr;
 	}

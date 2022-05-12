@@ -10,7 +10,7 @@ namespace ProjectChineseChess {
 	public:
 		array<PictureBox^, 2>^ board = gcnew array<PictureBox^, 2>(9, 10);
 		Board();
-		Point^ ToBoardCoord(Point^ formCoord);
-		Point^ ToFormCoord(Point^ boardCoord);
+		static Point^ ToBoardCoord(Point^ formCoord);
+		static Point^ ToFormCoord(Point^ boardCoord);
 	};
 }

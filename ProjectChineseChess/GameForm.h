@@ -18,6 +18,13 @@ namespace ProjectChineseChess {
 	public:
 		static GameForm^ gameform;
 		GameForm(void);
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ FileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ OpenToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ restartToolStripMenuItem;
+	public:
+
+
 	private:
 		GameManager^ game;
 	protected:
@@ -75,5 +82,7 @@ namespace ProjectChineseChess {
 	private: System::Void Piece_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void GameForm_Click(System::Object^ sender, System::EventArgs^ e);
 	public: System::Void Green_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OpenToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void restartToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

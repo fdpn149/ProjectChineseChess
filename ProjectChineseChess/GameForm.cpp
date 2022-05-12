@@ -66,6 +66,10 @@ namespace ProjectChineseChess
 		this->horseR2 = (gcnew System::Windows::Forms::PictureBox());
 		this->elephantR2 = (gcnew System::Windows::Forms::PictureBox());
 		this->advisorR2 = (gcnew System::Windows::Forms::PictureBox());
+		this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+		this->FileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->OpenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->restartToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB1))->BeginInit();
@@ -98,6 +102,7 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseR2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantR2))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorR2))->BeginInit();
+		this->menuStrip1->SuspendLayout();
 		this->SuspendLayout();
 		// 
 		// chariotB1
@@ -484,6 +489,39 @@ namespace ProjectChineseChess
 		this->advisorR2->TabStop = false;
 		this->advisorR2->Click += gcnew System::EventHandler(this, &GameForm::Piece_Click);
 		// 
+		// menuStrip1
+		// 
+		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->FileToolStripMenuItem });
+		this->menuStrip1->Location = System::Drawing::Point(0, 0);
+		this->menuStrip1->Name = L"menuStrip1";
+		this->menuStrip1->Size = System::Drawing::Size(933, 24);
+		this->menuStrip1->TabIndex = 32;
+		this->menuStrip1->Text = L"menuStrip1";
+		// 
+		// FileToolStripMenuItem
+		// 
+		this->FileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->OpenToolStripMenuItem,
+				this->restartToolStripMenuItem
+		});
+		this->FileToolStripMenuItem->Name = L"FileToolStripMenuItem";
+		this->FileToolStripMenuItem->Size = System::Drawing::Size(43, 20);
+		this->FileToolStripMenuItem->Text = L"檔案";
+		// 
+		// OpenToolStripMenuItem
+		// 
+		this->OpenToolStripMenuItem->Name = L"OpenToolStripMenuItem";
+		this->OpenToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+		this->OpenToolStripMenuItem->Text = L"開啟";
+		this->OpenToolStripMenuItem->Click += gcnew System::EventHandler(this, &GameForm::OpenToolStripMenuItem_Click);
+		// 
+		// restartToolStripMenuItem
+		// 
+		this->restartToolStripMenuItem->Name = L"restartToolStripMenuItem";
+		this->restartToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+		this->restartToolStripMenuItem->Text = L"重新開始";
+		this->restartToolStripMenuItem->Click += gcnew System::EventHandler(this, &GameForm::restartToolStripMenuItem_Click);
+		// 
 		// GameForm
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
@@ -492,7 +530,7 @@ namespace ProjectChineseChess
 			static_cast<System::Int32>(static_cast<System::Byte>(128)));
 		this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 		this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-		this->ClientSize = System::Drawing::Size(752, 825);
+		this->ClientSize = System::Drawing::Size(933, 825);
 		this->Controls->Add(this->advisorR2);
 		this->Controls->Add(this->elephantR2);
 		this->Controls->Add(this->horseR2);
@@ -525,10 +563,10 @@ namespace ProjectChineseChess
 		this->Controls->Add(this->elephantB1);
 		this->Controls->Add(this->horseB1);
 		this->Controls->Add(this->chariotB1);
+		this->Controls->Add(this->menuStrip1);
 		this->DoubleBuffered = true;
-		this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+		this->MainMenuStrip = this->menuStrip1;
 		this->MaximizeBox = false;
-		this->MaximumSize = System::Drawing::Size(768, 864);
 		this->Name = L"GameForm";
 		this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 		this->Text = L"GameForm";
@@ -566,7 +604,10 @@ namespace ProjectChineseChess
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseR2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantR2))->EndInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->advisorR2))->EndInit();
+		this->menuStrip1->ResumeLayout(false);
+		this->menuStrip1->PerformLayout();
 		this->ResumeLayout(false);
+		this->PerformLayout();
 
 	}
 
@@ -594,6 +635,17 @@ namespace ProjectChineseChess
 	{
 		PictureBox^ piece = (PictureBox^)sender;  //將piece設為被點擊的綠色
 		game->GreenClick(piece);
+	}
+
+	inline System::Void GameForm::OpenToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		
+	}
+
+	inline System::Void GameForm::restartToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		Application::Restart();
+		Environment::Exit(0);
 	}
 
 }

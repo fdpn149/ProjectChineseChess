@@ -25,6 +25,7 @@
     <ClCompile Include="Chariot.cpp" />
     <ClCompile Include="Chess.cpp" />
     <ClCompile Include="Elephant.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameForm.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="General.cpp" />
@@ -41,6 +42,7 @@
     <ClInclude Include="Chess.h" />
     <ClInclude Include="Elephant.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="GameForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

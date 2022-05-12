@@ -4,6 +4,7 @@
 #include "Chess.h"
 #include "Board.h"
 #include "Enums.h"
+#include "FileManager.h"
 using cliext::map;
 using cliext::vector;
 using System::Windows::Forms::PictureBox;
@@ -17,6 +18,7 @@ namespace ProjectChineseChess
 		int current_player;
 		Board^ board;
 		Viewer^ viewer;
+		FileManager^ fmanager;
 		State state = State::NONE;  //現在的狀態
 		PictureBox^ lastPiece;  //上一個被點擊的棋子
 		void pieceInit();  //建立棋子物件，並加到on_board中

@@ -16,7 +16,7 @@ namespace ProjectChineseChess
 		if (board->board[pos->X, pos->Y + direction] == nullptr)  //若前面一格沒有東西
 		{
 			PictureBox^ greenDot = gcnew PictureBox();  //建立一個綠點
-			Point^ formPoint = board->ToFormCoord(Point(pos->X, pos->Y + direction));  //綠點在視窗上的位置
+			Point^ formPoint = Board::ToFormCoord(Point(pos->X, pos->Y + direction));  //綠點在視窗上的位置
 			greenDot->Location = *formPoint;  //設定綠點的位置
 			GameManager::green->push_back(greenDot);  //將綠點存起來
 		}
@@ -34,7 +34,7 @@ namespace ProjectChineseChess
 		if (board->board[pos->X + direct, pos->Y] == nullptr)  //若旁邊一格沒有東西
 		{
 			PictureBox^ greenDot = gcnew PictureBox();  //建立一個綠點
-			Point^ formPoint = board->ToFormCoord(Point(pos->X + direct, pos->Y));  //綠點在視窗上的位置
+			Point^ formPoint = Board::ToFormCoord(Point(pos->X + direct, pos->Y));  //綠點在視窗上的位置
 			greenDot->Location = *formPoint;  //設定綠點的位置
 			GameManager::green->push_back(greenDot);  //將綠點存起來
 		}
@@ -65,7 +65,7 @@ namespace ProjectChineseChess
 
 	void Soldier::Move(Board^ board, PictureBox^ piece)
 	{
-		Point^ pos = board->ToBoardCoord(piece->Location);
+		Point^ pos = Board::ToBoardCoord(piece->Location);
 
 		if (crossedRiver == false)  //如果還沒過河
 			checkCrossRiver(pos);  //檢查是否過河

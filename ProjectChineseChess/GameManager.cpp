@@ -78,6 +78,7 @@ namespace ProjectChineseChess
 	{
 		viewer = gcnew Viewer();
 		board = gcnew Board();
+		fmanager = gcnew FileManager();
 		pieceInit();
 		current_player = 0;
 	}
@@ -89,6 +90,7 @@ namespace ProjectChineseChess
 		if (state == State::MOVE_PIECE)
 		{
 			on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
+			fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
 			viewer->RemovePiece(piece);
 			viewer->SetPiece(lastPiece, piece->Location);
 			viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
@@ -131,6 +133,7 @@ namespace ProjectChineseChess
 	void GameManager::GreenClick(PictureBox^ piece)
 	{
 		on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
+		fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
 		viewer->SetPiece(lastPiece, piece->Location);
 		viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
 		viewer->RemoveGreens();  //移除綠色點

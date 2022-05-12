@@ -90,7 +90,7 @@ namespace ProjectChineseChess
 		if (state == State::MOVE_PIECE)
 		{
 			on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
-			fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
+			if (!loading) fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
 			viewer->RemovePiece(piece);
 			viewer->SetPiece(lastPiece, piece->Location);
 			viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
@@ -133,12 +133,40 @@ namespace ProjectChineseChess
 	void GameManager::GreenClick(PictureBox^ piece)
 	{
 		on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
-		fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
+		if(!loading) fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
 		viewer->SetPiece(lastPiece, piece->Location);
 		viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
 		viewer->RemoveGreens();  //移除綠色點
 		viewer->RemoveReds();  //移除紅色點
 		state = State::NONE;  //將狀態改回來S
 		current_player = !current_player;
+	}
+	void GameManager::LoadFile()
+	{
+		loading = true;
+		if (fmanager->SetFile())
+		{
+			while (fmanager->ReadLine(board))
+			{
+				PieceClick(fmanager->GetFirstPiece());
+				if (fmanager->GetSecondPiece() != nullptr)
+					PieceClick(fmanager->GetSecondPiece());
+				else
+				{
+					Point^ secPos = fmanager->GetSecondPosition();
+					for (int i = 0; i < green->size(); i++)
+					{
+						if (green->at(i)->Location == *secPos)
+						{
+							GreenClick(green->at(i));
+							break;
+						}
+					}
+				}
+			}
+			loading = false;
+		}
+		else
+			throw 0;
 	}
 }

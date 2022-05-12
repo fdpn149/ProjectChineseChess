@@ -17,6 +17,15 @@ namespace ProjectChineseChess
 		//
 	}
 
+	GameForm::GameForm(char)
+	{
+		gameform = this;
+		InitializeComponent();
+		game = gcnew GameManager();
+		try { game->LoadFile(); }
+		catch (int) { throw 0; }
+	}
+
 	inline GameForm::~GameForm()
 	{
 		if (components)
@@ -68,7 +77,6 @@ namespace ProjectChineseChess
 		this->advisorR2 = (gcnew System::Windows::Forms::PictureBox());
 		this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 		this->FileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-		this->OpenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->restartToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->BeginInit();
@@ -500,25 +508,15 @@ namespace ProjectChineseChess
 		// 
 		// FileToolStripMenuItem
 		// 
-		this->FileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-			this->OpenToolStripMenuItem,
-				this->restartToolStripMenuItem
-		});
+		this->FileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->restartToolStripMenuItem });
 		this->FileToolStripMenuItem->Name = L"FileToolStripMenuItem";
 		this->FileToolStripMenuItem->Size = System::Drawing::Size(43, 20);
 		this->FileToolStripMenuItem->Text = L"檔案";
 		// 
-		// OpenToolStripMenuItem
-		// 
-		this->OpenToolStripMenuItem->Name = L"OpenToolStripMenuItem";
-		this->OpenToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-		this->OpenToolStripMenuItem->Text = L"開啟";
-		this->OpenToolStripMenuItem->Click += gcnew System::EventHandler(this, &GameForm::OpenToolStripMenuItem_Click);
-		// 
 		// restartToolStripMenuItem
 		// 
 		this->restartToolStripMenuItem->Name = L"restartToolStripMenuItem";
-		this->restartToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+		this->restartToolStripMenuItem->Size = System::Drawing::Size(122, 22);
 		this->restartToolStripMenuItem->Text = L"重新開始";
 		this->restartToolStripMenuItem->Click += gcnew System::EventHandler(this, &GameForm::restartToolStripMenuItem_Click);
 		// 
@@ -636,11 +634,6 @@ namespace ProjectChineseChess
 	{
 		PictureBox^ piece = (PictureBox^)sender;  //將piece設為被點擊的綠色
 		game->GreenClick(piece);
-	}
-
-	inline System::Void GameForm::OpenToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		
 	}
 
 	inline System::Void GameForm::restartToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)

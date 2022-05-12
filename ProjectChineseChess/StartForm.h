@@ -25,6 +25,8 @@ namespace ProjectChineseChess {
 		~StartForm();
 	public: System::Windows::Forms::Button^ startButton;
 	private: System::Windows::Forms::Button^ exitButton;
+	private: System::Windows::Forms::Button^ loadButton;
+
 	public:
 	protected:
 
@@ -49,5 +51,6 @@ namespace ProjectChineseChess {
 #pragma endregion
 	private: System::Void startButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void exitButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void loadButton_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

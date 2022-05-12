@@ -1,4 +1,5 @@
 #include "StartForm.h"
+#include "FileManager.h"
 
 [System::STAThreadAttribute]
 
@@ -42,13 +43,14 @@ namespace ProjectChineseChess
 	{
 		this->startButton = (gcnew System::Windows::Forms::Button());
 		this->exitButton = (gcnew System::Windows::Forms::Button());
+		this->loadButton = (gcnew System::Windows::Forms::Button());
 		this->SuspendLayout();
 		// 
 		// startButton
 		// 
-		this->startButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		this->startButton->Font = (gcnew System::Drawing::Font(L"Microsoft JhengHei", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(136)));
-		this->startButton->Location = System::Drawing::Point(268, 518);
+		this->startButton->Location = System::Drawing::Point(268, 447);
 		this->startButton->Name = L"startButton";
 		this->startButton->Size = System::Drawing::Size(245, 90);
 		this->startButton->TabIndex = 0;
@@ -58,9 +60,9 @@ namespace ProjectChineseChess
 		// 
 		// exitButton
 		// 
-		this->exitButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		this->exitButton->Font = (gcnew System::Drawing::Font(L"Microsoft JhengHei", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(136)));
-		this->exitButton->Location = System::Drawing::Point(268, 636);
+		this->exitButton->Location = System::Drawing::Point(268, 687);
 		this->exitButton->Name = L"exitButton";
 		this->exitButton->Size = System::Drawing::Size(245, 88);
 		this->exitButton->TabIndex = 1;
@@ -68,11 +70,24 @@ namespace ProjectChineseChess
 		this->exitButton->UseVisualStyleBackColor = true;
 		this->exitButton->Click += gcnew System::EventHandler(this, &StartForm::exitButton_Click);
 		// 
+		// loadButton
+		// 
+		this->loadButton->Font = (gcnew System::Drawing::Font(L"Microsoft JhengHei", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(136)));
+		this->loadButton->Location = System::Drawing::Point(268, 568);
+		this->loadButton->Name = L"loadButton";
+		this->loadButton->Size = System::Drawing::Size(245, 88);
+		this->loadButton->TabIndex = 1;
+		this->loadButton->Text = L"讀取遊戲";
+		this->loadButton->UseVisualStyleBackColor = true;
+		this->loadButton->Click += gcnew System::EventHandler(this, &StartForm::loadButton_Click);
+		// 
 		// StartForm
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->ClientSize = System::Drawing::Size(752, 825);
+		this->Controls->Add(this->loadButton);
 		this->Controls->Add(this->exitButton);
 		this->Controls->Add(this->startButton);
 		this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
@@ -95,5 +110,16 @@ namespace ProjectChineseChess
 	inline System::Void StartForm::exitButton_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		Application::Exit();  //結束程式
+	}
+	System::Void StartForm::loadButton_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		try 
+		{
+			GameForm^ form = gcnew GameForm('L');  //建立遊戲視窗
+			form->Show();  //顯示遊戲視窗
+			this->Hide();  //隱藏開始視窗
+		}
+		//沒有開檔案
+		catch (int){}
 	}
 }

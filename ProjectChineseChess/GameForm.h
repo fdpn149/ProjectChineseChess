@@ -80,9 +80,8 @@ namespace ProjectChineseChess {
 		void InitializeComponent(void);
 #pragma endregion
 	private: System::Void GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
-	private: System::Void Piece_Click(System::Object^ sender, System::EventArgs^ e);
+	public: System::Void Piece_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void GameForm_Click(System::Object^ sender, System::EventArgs^ e);
-	public: System::Void Green_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void restartToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

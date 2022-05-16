@@ -26,7 +26,7 @@ namespace ProjectChineseChess
 		for (int i = 0; i < GameManager::green->size(); i++)
 		{
 			GameManager::green[i]->Size = Size(70, 70);
-			GameManager::green[i]->Click += gcnew System::EventHandler(GameForm::gameform, &GameForm::Green_Click);
+			GameManager::green[i]->Click += gcnew System::EventHandler(GameForm::gameform, &GameForm::Piece_Click);
 			GameManager::green[i]->BackColor = System::Drawing::Color::Transparent;
 			GameManager::green[i]->Image = (cli::safe_cast<System::Drawing::Image^>(resourceManager->GetObject(L"Green")));
 			GameForm::gameform->Controls->Add(GameManager::green[i]);

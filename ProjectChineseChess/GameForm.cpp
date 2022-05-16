@@ -642,12 +642,6 @@ namespace ProjectChineseChess
 		game->FormClick();  //執行視窗被點擊後所需做的事
 	}
 
-	System::Void GameForm::Green_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		PictureBox^ piece = (PictureBox^)sender;  //將piece設為被點擊的綠色
-		game->GreenClick(piece);
-	}
-
 	inline System::Void GameForm::restartToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		Application::Restart();

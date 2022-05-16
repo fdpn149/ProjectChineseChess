@@ -36,4 +36,16 @@ namespace ProjectChineseChess
         point->Y = boardCoord->Y * 75 + 40;
         return point;
     }
+    PictureBox^ Board::FindPiece(String^ name)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (board[i, j] != nullptr && board[i, j]->Name == name)
+                    return board[i, j];
+            }
+        }
+        return nullptr;
+    }
 }

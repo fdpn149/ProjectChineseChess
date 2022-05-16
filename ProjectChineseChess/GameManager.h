@@ -7,6 +7,7 @@
 #include "FileManager.h"
 using cliext::map;
 using cliext::vector;
+using Microsoft::VisualC::StlClr::GenericPair;
 using System::Windows::Forms::PictureBox;
 using System::String;
 namespace ProjectChineseChess
@@ -22,6 +23,7 @@ namespace ProjectChineseChess
 		State state = State::NONE;  //現在的狀態
 		PictureBox^ lastPiece;  //上一個被點擊的棋子
 		bool loading = false;  //讀取中
+		bool check = false;  //將軍
 		void pieceInit();  //建立棋子物件，並加到on_board中
 		void changeState(PictureBox^ nowPiece);  //更改狀態
 	public:

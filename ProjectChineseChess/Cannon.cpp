@@ -55,7 +55,7 @@ namespace ProjectChineseChess
 
 		findOpponent(board, Direction::UP, pos);
 		findOpponent(board, Direction::DOWN, pos);
-		if (!kingsFaceToFace(board, piece))  //д¤игд¤зP┬_
+		if (!KingsFaceToFace(board, piece))  //д¤игд¤зP┬_
 			return;
 		findOpponent(board, Direction::LEFT, pos);
 		findOpponent(board, Direction::RIGHT, pos);

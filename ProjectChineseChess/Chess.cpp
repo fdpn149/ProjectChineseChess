@@ -11,8 +11,11 @@ namespace ProjectChineseChess
 	{
 		Point^ fpos = Board::ToBoardCoord(fromPos);
 		Point^ tpos = Board::ToBoardCoord(toPos);
-		board->board[tpos->X, tpos->Y] = board->board[fpos->X, fpos->Y];
-		board->board[fpos->X, fpos->Y] = nullptr;
+		if (*fpos != *tpos)
+		{
+			board->board[tpos->X, tpos->Y] = board->board[fpos->X, fpos->Y];
+			board->board[fpos->X, fpos->Y] = nullptr;
+		}
 	}
 	Color Chess::PieceColor(PictureBox^ piece)
 	{
@@ -24,7 +27,7 @@ namespace ProjectChineseChess
 			return Color::BLACK;
 	}
 
-	bool Chess::kingsFaceToFace(Board^ board, PictureBox^ piece)
+	bool Chess::KingsFaceToFace(Board^ board, PictureBox^ piece)
 	{
 		Point RedGeneral;
 		Point BlackGeneral;

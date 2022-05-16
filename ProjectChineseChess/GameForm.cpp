@@ -78,6 +78,7 @@ namespace ProjectChineseChess
 		this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 		this->FileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->restartToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->label1 = (gcnew System::Windows::Forms::Label());
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB1))->BeginInit();
@@ -502,7 +503,7 @@ namespace ProjectChineseChess
 		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->FileToolStripMenuItem });
 		this->menuStrip1->Location = System::Drawing::Point(0, 0);
 		this->menuStrip1->Name = L"menuStrip1";
-		this->menuStrip1->Size = System::Drawing::Size(752, 24);
+		this->menuStrip1->Size = System::Drawing::Size(890, 24);
 		this->menuStrip1->TabIndex = 32;
 		this->menuStrip1->Text = L"menuStrip1";
 		// 
@@ -520,6 +521,16 @@ namespace ProjectChineseChess
 		this->restartToolStripMenuItem->Text = L"重新開始";
 		this->restartToolStripMenuItem->Click += gcnew System::EventHandler(this, &GameForm::restartToolStripMenuItem_Click);
 		// 
+		// label1
+		// 
+		this->label1->AutoSize = true;
+		this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft JhengHei", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(136)));
+		this->label1->Location = System::Drawing::Point(710, 394);
+		this->label1->Name = L"label1";
+		this->label1->Size = System::Drawing::Size(0, 45);
+		this->label1->TabIndex = 33;
+		// 
 		// GameForm
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
@@ -528,7 +539,8 @@ namespace ProjectChineseChess
 			static_cast<System::Int32>(static_cast<System::Byte>(128)));
 		this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 		this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-		this->ClientSize = System::Drawing::Size(752, 825);
+		this->ClientSize = System::Drawing::Size(890, 825);
+		this->Controls->Add(this->label1);
 		this->Controls->Add(this->advisorR2);
 		this->Controls->Add(this->elephantR2);
 		this->Controls->Add(this->horseR2);

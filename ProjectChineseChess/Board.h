@@ -2,6 +2,7 @@
 
 using System::Windows::Forms::PictureBox;
 using System::Drawing::Point;
+using System::String;
 
 namespace ProjectChineseChess {
 	//´Ñ½L
@@ -12,5 +13,6 @@ namespace ProjectChineseChess {
 		Board();
 		static Point^ ToBoardCoord(Point^ formCoord);
 		static Point^ ToFormCoord(Point^ boardCoord);
+		PictureBox^ FindPiece(String^ name);
 	};
 }

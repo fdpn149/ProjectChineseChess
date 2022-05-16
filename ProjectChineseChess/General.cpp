@@ -69,11 +69,11 @@ namespace ProjectChineseChess
 			GameManager::red->push_back(board->board[X, Y]);
 	}
 
-	bool General::kingsFaceToFace(Board^ board, Direction direct, int X, int Y)
+	bool General::KingsFaceToFace(Board^ board, Direction direct, int X, int Y)
 	{
 		if (Y < 5)  //黑
 		{
-			Point RedGeneral;
+			Point^ RedGeneral;
 			for (int i = 3; i <= 5; i++)
 				for (int j = 7; j <= 9; j++)
 				{
@@ -82,22 +82,22 @@ namespace ProjectChineseChess
 					if (board->board[i, j]->Name == "generalR1")
 						RedGeneral = Point(i, j);
 				}
-			if (X + 1 == RedGeneral.X)  //紅在右
+			if (X + 1 == RedGeneral->X)  //紅在右
 			{
-				for (int i = Y; i < RedGeneral.Y; i++)
+				for (int i = Y; i < RedGeneral->Y; i++)
 				{
-					if (board->board[RedGeneral.X, i] != nullptr)
+					if (board->board[RedGeneral->X, i] != nullptr)
 						return true;  //不會出現王見王的情況
 					else
 						continue;
 				}
 				return false;  //"將"不能右移
 			}
-			else if (X - 1 == RedGeneral.X)  //紅在左
+			else if (X - 1 == RedGeneral->X)  //紅在左
 			{
-				for (int i = Y; i < RedGeneral.Y; i++)
+				for (int i = Y; i < RedGeneral->Y; i++)
 				{
-					if (board->board[RedGeneral.X, i] != nullptr)
+					if (board->board[RedGeneral->X, i] != nullptr)
 						return true;  //不會出現王見王的情況
 					else
 						continue;
@@ -107,7 +107,7 @@ namespace ProjectChineseChess
 		}
 		else  //紅
 		{
-			Point BlackGeneral;
+			Point^ BlackGeneral;
 			for (int i = 3; i <= 5; i++)
 				for (int j = 0; j <= 2; j++)
 				{
@@ -116,22 +116,22 @@ namespace ProjectChineseChess
 					if (board->board[i, j]->Name == "generalB1")
 						BlackGeneral = Point(i, j);
 				}
-			if (BlackGeneral.X == X - 1)  //紅在右
+			if (BlackGeneral->X == X - 1)  //紅在右
 			{
-				for (int i = BlackGeneral.Y + 1; i <= Y; i++)
+				for (int i = BlackGeneral->Y + 1; i <= Y; i++)
 				{
-					if (board->board[BlackGeneral.X, i] != nullptr)
+					if (board->board[BlackGeneral->X, i] != nullptr)
 						return true;
 					else
 						continue;
 				}
 				return false;
 			}
-			else if (BlackGeneral.X == X + 1)  //紅在左
+			else if (BlackGeneral->X == X + 1)  //紅在左
 			{
-				for (int i = BlackGeneral.Y + 1; i <= Y; i++)
+				for (int i = BlackGeneral->Y + 1; i <= Y; i++)
 				{
-					if (board->board[BlackGeneral.X, i] != nullptr)
+					if (board->board[BlackGeneral->X, i] != nullptr)
 						return true;
 					else
 						continue;
@@ -139,6 +139,7 @@ namespace ProjectChineseChess
 				return false;
 			}
 		}
+		return true;
 	}
 
 	void General::Move(Board^ board, PictureBox^ piece)
@@ -163,7 +164,7 @@ namespace ProjectChineseChess
 		X = pos->X - 1; Y = pos->Y;
 		if (inRange(Direction::LEFT, X, Y))
 		{
-			if (!kingsFaceToFace(board, Direction::LEFT, X + 1, Y))  //王見王判斷
+			if (!KingsFaceToFace(board, Direction::LEFT, X + 1, Y))  //王見王判斷
 			{
 			}
 			else
@@ -174,7 +175,7 @@ namespace ProjectChineseChess
 		X = pos->X + 1; Y = pos->Y;
 		if (inRange(Direction::RIGHT, X, Y))
 		{
-			if (!kingsFaceToFace(board, Direction::RIGHT, X - 1, Y))  //王見王判斷
+			if (!KingsFaceToFace(board, Direction::RIGHT, X - 1, Y))  //王見王判斷
 			{
 			}
 			else

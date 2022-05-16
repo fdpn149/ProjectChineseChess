@@ -90,7 +90,7 @@ namespace ProjectChineseChess
 
 	void Advisor::Move(Board^ board, PictureBox^ piece)
 	{
-		if (!kingsFaceToFace(board, piece))  //д¤игд¤зP┬_
+		if (!KingsFaceToFace(board, piece))  //д¤игд¤зP┬_
 			return;
 		Point^ pos = Board::ToBoardCoord(piece->Location);
 		

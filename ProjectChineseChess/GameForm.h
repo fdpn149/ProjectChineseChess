@@ -16,6 +16,10 @@ namespace ProjectChineseChess {
 	public ref class GameForm : public System::Windows::Forms::Form
 	{
 		GameManager^ game;
+	public: System::Windows::Forms::Label^ label1;
+	private:
+
+
 	public:
 		static GameForm^ gameform;
 		GameForm(void);

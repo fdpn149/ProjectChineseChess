@@ -89,13 +89,62 @@ namespace ProjectChineseChess
 		//若要移動棋子
 		if (state == State::MOVE_PIECE)
 		{
+			check = false;
+			viewer->Label1Hide();
+			Color pieceColor = on_board[piece->Name]->PieceColor(piece);  //棋子的顏色
 			on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
 			if (!loading) fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
 			viewer->RemovePiece(piece);
+			on_board.erase(piece->Name);
 			viewer->SetPiece(lastPiece, piece->Location);
 			viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
 			viewer->RemoveGreens();  //移除綠色點
 			viewer->RemoveReds();  //移除紅色點
+			on_board[lastPiece->Name]->Move(board, lastPiece);  //尋找可以走的路徑
+			for (int i = 0; i < red->size(); i++)
+			{
+				if (red->at(i)->Name[0] == 'g')
+				{
+					check = true;
+					if (on_board[lastPiece->Name]->color == Color::BLACK)
+						viewer->Label1Show("黑方將軍");
+					else
+						viewer->Label1Show("紅方將軍");
+					break;
+				}
+			}
+			viewer->RemoveGreens();  //移除綠色點
+			viewer->RemoveReds();  //移除紅色點
+			//找每個自己的棋子可以走的路徑
+			for each (GenericPair<String^, Chess^> ^ p in on_board)
+			{
+				bool willCheck = false;  //是否會被將軍
+				//若是己方的棋子
+				if (p->second->color == pieceColor)
+				{
+					p->second->Move(board, board->FindPiece(p->first));  //尋找可以走的路徑
+					for (int j = 0; j < red->size(); j++)
+					{
+						if (red->at(j)->Name[0] == 'g')
+						{
+							willCheck = true;
+							check = true;
+							if (on_board[lastPiece->Name]->color == Color::BLACK)
+								viewer->Label1Show("黑方將軍");
+							else
+								viewer->Label1Show("紅方將軍");
+							break;
+						}
+					}
+					green->clear();  //清除綠色
+					red->clear();  //清除紅色
+				}
+				if (willCheck)
+					break;
+			}
+			green->clear();  //清除綠色
+			red->clear();  //清除紅色
+
 			state = State::NONE;  //將狀態改回來S
 			current_player = !current_player;
 		}
@@ -103,15 +152,96 @@ namespace ProjectChineseChess
 		else if (state == State::PIECE_CLICKED)
 		{
 			viewer->PieceClick(piece);  //讓棋子變色
-			on_board[piece->Name]->Move(board,piece);  //尋找可以走的路徑
+			on_board[piece->Name]->Move(board, piece);  //尋找可以走的路徑
+			Point^ nowPosition = piece->Location;  //保存棋子現在的位置
+			vector<PictureBox^>^ greenBak = gcnew vector<PictureBox^>;  //備份現在綠色的陣列
+			vector<PictureBox^>^ redBak = gcnew vector<PictureBox^>;  //備份現在紅色的陣列
+			greenBak->assign(green->begin(), green->end());  //複製綠色到綠色備份
+			redBak->assign(red->begin(), red->end());  //複製紅色到紅色備份
+			green->clear();  //清除綠色
+			red->clear();  //清除紅色
+			Color pieceColor = on_board[piece->Name]->PieceColor(piece);  //棋子的顏色
+			for (int i = 0; i < greenBak->size(); i++)
+			{
+				on_board[piece->Name]->OnMove(board, nowPosition, greenBak->at(i)->Location);  //移動棋子到綠色點
+				nowPosition = greenBak->at(i)->Location;  //設定棋子現在的位置
+
+				//找每個對手的棋子可以走的路徑
+				for each (GenericPair<String^, Chess^> ^ p in on_board)
+				{
+					bool willCheck = false;
+					//若是對手的棋子
+					if (p->second->color != pieceColor)
+					{
+						p->second->Move(board, board->FindPiece(p->first));  //尋找可以走的路徑
+						for (int j = 0; j < red->size(); j++)
+						{
+							if (red->at(j)->Name[0] == 'g')
+							{
+								willCheck = true;
+								greenBak->erase(greenBak->begin() + i);
+								i--;
+								break;
+							}
+						}
+						green->clear();  //清除綠色
+						red->clear();  //清除紅色
+					}
+					if (willCheck)
+						break;
+				}
+			}
+			on_board[piece->Name]->OnMove(board, nowPosition, piece->Location);
+			if (check)
+			{
+				for (int i = 0; i < redBak->size(); i++)
+				{
+					PictureBox^ bak = redBak->at(i);
+					on_board[piece->Name]->OnMove(board, piece->Location, redBak->at(i)->Location);  //移動棋子到紅色點
+
+					//找每個對手的棋子可以走的路徑
+					for each (GenericPair<String^, Chess^> ^ p in on_board)
+					{
+						bool willCheck = false;  //是否會被將軍
+						//若是對手的棋子
+						if (p->second->color != pieceColor)
+						{
+							PictureBox^ find = board->FindPiece(p->first);
+							if (find != nullptr)
+							{
+								p->second->Move(board, find);  //尋找可以走的路徑
+								for (int j = 0; j < red->size(); j++)
+								{
+									if (red->at(j)->Name[0] == 'g')
+									{
+										willCheck = true;
+										redBak->erase(redBak->begin() + i);
+										i--;
+										break;
+									}
+								}
+							}
+							green->clear();  //清除綠色
+							red->clear();  //清除紅色
+						}
+						if (willCheck)
+							break;
+					}
+					on_board[piece->Name]->OnMove(board, bak->Location, piece->Location);  //將棋子移回去
+					Point^ pos = Board::ToBoardCoord(bak->Location);
+					board->board[pos->X, pos->Y] = bak;
+				}
+			}
+			green->assign(greenBak->begin(), greenBak->end());  //複製綠色到綠色備份
+			red->assign(redBak->begin(), redBak->end());  //複製紅色到紅色備份
 			viewer->ShowGreens();  //顯示綠色點
 			viewer->ShowReds();  //顯示紅色點
-			
+
 		}
 		//若同一棋子被點兩下
 		else
 		{
-			if(lastPiece != nullptr)
+			if (lastPiece != nullptr)
 				viewer->PieceUnclick(lastPiece);  //將上個棋子的顏色改回來
 			viewer->PieceUnclick(piece);  //將棋子顏色改回來
 			viewer->RemoveGreens();  //移除綠色點
@@ -132,12 +262,60 @@ namespace ProjectChineseChess
 
 	void GameManager::GreenClick(PictureBox^ piece)
 	{
+		check = false;
+		viewer->Label1Hide();
+		Color pieceColor = on_board[lastPiece->Name]->PieceColor(lastPiece);  //棋子的顏色
 		on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
-		if(!loading) fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
+		if (!loading) fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
 		viewer->SetPiece(lastPiece, piece->Location);
 		viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
 		viewer->RemoveGreens();  //移除綠色點
 		viewer->RemoveReds();  //移除紅色點
+		on_board[lastPiece->Name]->Move(board, lastPiece);  //尋找可以走的路徑
+		for (int i = 0; i < red->size(); i++)
+		{
+			if (red->at(i)->Name[0] == 'g')
+			{
+				check = true;
+				if (on_board[lastPiece->Name]->color == Color::BLACK)
+					viewer->Label1Show("黑方將軍");
+				else
+					viewer->Label1Show("紅方將軍");
+				break;
+			}
+		}
+		green->clear();  //清除綠色
+		red->clear();  //清除紅色
+		//找每個自己的棋子可以走的路徑
+		for each (GenericPair<String^, Chess^> ^ p in on_board)
+		{
+			bool willCheck = false;  //是否會被將軍
+			//若是己方的棋子
+			if (p->second->color == pieceColor)
+			{
+				p->second->Move(board, board->FindPiece(p->first));  //尋找可以走的路徑
+				for (int j = 0; j < red->size(); j++)
+				{
+					if (red->at(j)->Name[0] == 'g')
+					{
+						willCheck = true;
+						check = true;
+						if (on_board[lastPiece->Name]->color == Color::BLACK)
+							viewer->Label1Show("黑方將軍");
+						else
+							viewer->Label1Show("紅方將軍");
+						break;
+					}
+				}
+				green->clear();  //清除綠色
+				red->clear();  //清除紅色
+			}
+			if (willCheck)
+				break;
+		}
+		green->clear();  //清除綠色
+		red->clear();  //清除紅色
+
 		state = State::NONE;  //將狀態改回來S
 		current_player = !current_player;
 	}
@@ -164,6 +342,21 @@ namespace ProjectChineseChess
 					}
 				}
 			}
+			//on_board[lastPiece->Name]->Move(board, lastPiece);  //尋找可以走的路徑
+			//for (int i = 0; i < red->size(); i++)
+			//{
+			//	if (red->at(i)->Name[0] == 'g')
+			//	{
+			//		check = true;
+			//		if (on_board[lastPiece->Name]->color == Color::BLACK)
+			//			viewer->Label1Show("黑方將軍");
+			//		else
+			//			viewer->Label1Show("紅方將軍");
+			//		break;
+			//	}
+			//}
+			//viewer->RemoveGreens();  //移除綠色點
+			//viewer->RemoveReds();  //移除紅色點
 			loading = false;
 		}
 		else

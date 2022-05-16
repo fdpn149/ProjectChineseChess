@@ -74,6 +74,16 @@ namespace ProjectChineseChess
 		System::Windows::Forms::MessageBox::Show(m);
 	}
 
+	void Viewer::Label1Show(String^ str)
+	{
+		GameForm::gameform->label1->Text = str;
+	}
+
+	void Viewer::Label1Hide()
+	{
+		GameForm::gameform->label1->Text = "";
+	}
+
 	//void Viewer::test(PictureBox^ p)
 	//{
 	//	//將傳入的棋子設為紅色

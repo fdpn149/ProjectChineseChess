@@ -32,7 +32,6 @@ namespace ProjectChineseChess
 		GameManager();
 		void PieceClick(PictureBox^ piece);  //棋子被點擊
 		void FormClick();  //視窗被點擊
-		void GreenClick(PictureBox^ piece);  //綠色被點擊
 		void LoadFile();
 	};
 }

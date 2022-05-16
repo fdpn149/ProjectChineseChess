@@ -25,6 +25,7 @@ namespace ProjectChineseChess {
 		void ShowMessage(String^ m);
 		void Label1Show(String^ str);
 		void Label1Hide();
+		void GameOver();
 		//void test(System::Windows::Forms::PictureBox^ p);  //´ú¸Õ¥Î
 	};
 

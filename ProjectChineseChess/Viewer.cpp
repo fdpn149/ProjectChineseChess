@@ -84,6 +84,11 @@ namespace ProjectChineseChess
 		GameForm::gameform->label1->Text = "";
 	}
 
+	void Viewer::GameOver()
+	{
+		GameForm::gameform->End();
+	}
+
 	//void Viewer::test(PictureBox^ p)
 	//{
 	//	//將傳入的棋子設為紅色

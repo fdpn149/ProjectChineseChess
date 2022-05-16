@@ -46,20 +46,6 @@ namespace ProjectChineseChess
 		}
 	}
 
-	void Soldier::checkCrossRiver(Point^ pos)
-	{
-		if (color == Color::BLACK)  //如果是黑色
-		{
-			if (pos->Y >= 5)
-				crossedRiver = true;
-		}
-		else  //如果是紅色
-		{
-			if (pos->Y <= 4)
-				crossedRiver = true;
-		}
-	}
-
 	Soldier::Soldier(Color color, int id) : Chess(color, id)
 	{
 		crossedRiver = false;
@@ -68,9 +54,6 @@ namespace ProjectChineseChess
 	void Soldier::Move(Board^ board, PictureBox^ piece)
 	{
 		Point^ pos = Board::ToBoardCoord(piece->Location);
-
-		if (crossedRiver == false)  //如果還沒過河
-			checkCrossRiver(pos);  //檢查是否過河
 
 		checkFront(board, pos);  //檢查前面
 		if (crossedRiver)  //如果已經過河

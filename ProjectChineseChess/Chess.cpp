@@ -27,6 +27,16 @@ namespace ProjectChineseChess
 			return Color::BLACK;
 	}
 
+	Color Chess::OpponentColor(PictureBox^ piece)
+	{
+		//若棋子是紅色
+		if (piece->Name[piece->Name->Length - 2] == 'R')
+			return Color::BLACK;
+		//若棋子是黑色
+		else
+			return Color::RED;
+	}
+
 	bool Chess::KingsFaceToFace(Board^ board, PictureBox^ piece)
 	{
 		Point RedGeneral;
@@ -63,5 +73,9 @@ namespace ProjectChineseChess
 		}
 		else
 			return true;  //不會出現王見王的情況
+	}
+	void Chess::SetCrossRiver()
+	{
+		crossedRiver = true;
 	}
 }

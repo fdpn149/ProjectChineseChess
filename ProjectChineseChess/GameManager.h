@@ -26,6 +26,10 @@ namespace ProjectChineseChess
 		bool check = false;  //將軍
 		void pieceInit();  //建立棋子物件，並加到on_board中
 		void changeState(PictureBox^ nowPiece);  //更改狀態
+		bool willCheck(Color color);  //偵測是否會將軍
+		bool opponentCanMove(Color color);  //判斷敵方是否欠行
+		void findExactlyMove(PictureBox^ piece);
+		bool cross_river(PictureBox^ piece);
 	public:
 		static vector<PictureBox^>^ green = gcnew vector<PictureBox^>;  //存可走的路徑
 		static vector<PictureBox^>^ red = gcnew vector<PictureBox^>;  //存可被吃掉的棋子

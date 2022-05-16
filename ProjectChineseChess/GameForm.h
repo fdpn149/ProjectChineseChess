@@ -17,17 +17,24 @@ namespace ProjectChineseChess {
 	{
 		GameManager^ game;
 	public: System::Windows::Forms::Label^ label1;
-	private:
+	private: System::Windows::Forms::Button^ menuButton;
+	public:
+
+	private: System::Windows::Forms::Panel^ panel1;
+	public:
+
+	public:
 
 
 	public:
 		static GameForm^ gameform;
 		GameForm(void);
 		GameForm(char);
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ FileToolStripMenuItem;
+		void End();
 
-	private: System::Windows::Forms::ToolStripMenuItem^ restartToolStripMenuItem;
+
+
+
 	protected:
 		/// <summary>
 		/// 清除任何使用中的資源。
@@ -82,6 +89,7 @@ namespace ProjectChineseChess {
 	private: System::Void GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 	public: System::Void Piece_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void GameForm_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void restartToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	
+	private: System::Void menuButton_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

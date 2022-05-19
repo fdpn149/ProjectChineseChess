@@ -10,6 +10,7 @@ namespace ProjectChineseChess
 	{
 	protected:
 		bool crossedRiver;
+		void pushGreenAndRed(Board^ board, int X, int Y);
 	public:
 		Color color;  //ª±®a(BLACK & RED)
 		int id;  //´Ñ¤lªºid

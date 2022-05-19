@@ -13,18 +13,7 @@ namespace ProjectChineseChess
 		else
 			direction = -1;
 
-		if (board->board[pos->X, pos->Y + direction] == nullptr)  //若前面一格沒有東西
-		{
-			PictureBox^ greenDot = gcnew PictureBox();  //建立一個綠點
-			Point^ formPoint = Board::ToFormCoord(Point(pos->X, pos->Y + direction));  //綠點在視窗上的位置
-			greenDot->Location = *formPoint;  //設定綠點的位置
-			greenDot->Name = "green";
-			GameManager::green->push_back(greenDot);  //將綠點存起來
-		}
-		else if (PieceColor(board->board[pos->X, pos->Y + direction]) != color)  //若前面一格是對手的棋子
-		{
-			GameManager::red->push_back(board->board[pos->X, pos->Y + direction]);  //將前面的棋子存起來
-		}
+		pushGreenAndRed(board, pos->X, pos->Y + direction);
 	}
 
 	void Soldier::checkSide(Board^ board, Point^ pos, int direct)

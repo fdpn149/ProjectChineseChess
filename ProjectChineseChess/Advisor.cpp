@@ -74,19 +74,7 @@ namespace ProjectChineseChess
 		}
 		return false;
 	}
-	void Advisor::pushGreenAndRed(Board^ board, int X, int Y)
-	{
-		if (board->board[X, Y] == nullptr)
-		{
-			PictureBox^ greenDot = gcnew PictureBox();  //建立一個綠點
-			Point^ formPoint = Board::ToFormCoord(Point(X, Y));  //綠點在視窗上的位置
-			greenDot->Location = *formPoint;  //設定綠點的位置
-			greenDot->Name = "green";
-			GameManager::green->push_back(greenDot);  //將綠點存起來
-		}
-		else if (PieceColor(board->board[X, Y]) != color)
-			GameManager::red->push_back(board->board[X, Y]);
-	}
+
 
 
 	void Advisor::Move(Board^ board, PictureBox^ piece)

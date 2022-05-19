@@ -26,6 +26,7 @@ namespace ProjectChineseChess {
 	public: System::Windows::Forms::Button^ startButton;
 	private: System::Windows::Forms::Button^ exitButton;
 	private: System::Windows::Forms::Button^ loadButton;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	public:
 	protected:

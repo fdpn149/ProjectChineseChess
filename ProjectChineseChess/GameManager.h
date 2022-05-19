@@ -37,5 +37,6 @@ namespace ProjectChineseChess
 		void PieceClick(PictureBox^ piece);  //棋子被點擊
 		void FormClick();  //視窗被點擊
 		void LoadFile();
+		void GiveUp();
 	};
 }

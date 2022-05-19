@@ -86,6 +86,9 @@ namespace ProjectChineseChess
 
 	void Viewer::GameOver()
 	{
+		GameForm::gameform->giveupButton->Visible = false;
+		GameForm::gameform->restartButton->Visible = true;
+		GameForm::gameform->menuButton->Visible = true;
 		GameForm::gameform->End();
 	}
 

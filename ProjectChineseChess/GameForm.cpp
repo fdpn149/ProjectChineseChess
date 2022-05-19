@@ -1,6 +1,7 @@
 #include "GameForm.h"
 #include "Board.h"
 #include "GameManager.h"
+#include "StartForm.h"
 /// <summary>
 /// 清除任何使用中的資源。
 /// </summary>
@@ -87,6 +88,8 @@ namespace ProjectChineseChess
 		this->label1 = (gcnew System::Windows::Forms::Label());
 		this->menuButton = (gcnew System::Windows::Forms::Button());
 		this->panel1 = (gcnew System::Windows::Forms::Panel());
+		this->giveupButton = (gcnew System::Windows::Forms::Button());
+		this->restartButton = (gcnew System::Windows::Forms::Button());
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB1))->BeginInit();
@@ -508,11 +511,11 @@ namespace ProjectChineseChess
 		// 
 		// label1
 		// 
-		this->label1->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+		this->label1->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(136)));
-		this->label1->Location = System::Drawing::Point(19, 100);
+		this->label1->Location = System::Drawing::Point(55, 70);
 		this->label1->Name = L"label1";
-		this->label1->Size = System::Drawing::Size(170, 45);
+		this->label1->Size = System::Drawing::Size(99, 349);
 		this->label1->TabIndex = 33;
 		this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 		// 
@@ -523,23 +526,57 @@ namespace ProjectChineseChess
 		this->menuButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(136)));
 		this->menuButton->ForeColor = System::Drawing::Color::White;
-		this->menuButton->Location = System::Drawing::Point(43, 755);
+		this->menuButton->Location = System::Drawing::Point(43, 715);
 		this->menuButton->Name = L"menuButton";
 		this->menuButton->Size = System::Drawing::Size(119, 58);
 		this->menuButton->TabIndex = 34;
 		this->menuButton->Text = L"回主選單";
 		this->menuButton->UseVisualStyleBackColor = false;
+		this->menuButton->Visible = false;
 		this->menuButton->Click += gcnew System::EventHandler(this, &GameForm::menuButton_Click);
 		// 
 		// panel1
 		// 
 		this->panel1->BackColor = System::Drawing::Color::Wheat;
 		this->panel1->Controls->Add(this->label1);
+		this->panel1->Controls->Add(this->giveupButton);
+		this->panel1->Controls->Add(this->restartButton);
 		this->panel1->Controls->Add(this->menuButton);
 		this->panel1->Location = System::Drawing::Point(743, 0);
 		this->panel1->Name = L"panel1";
 		this->panel1->Size = System::Drawing::Size(201, 827);
 		this->panel1->TabIndex = 35;
+		// 
+		// giveupButton
+		// 
+		this->giveupButton->BackColor = System::Drawing::Color::Peru;
+		this->giveupButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->giveupButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(136)));
+		this->giveupButton->ForeColor = System::Drawing::Color::White;
+		this->giveupButton->Location = System::Drawing::Point(43, 715);
+		this->giveupButton->Name = L"giveupButton";
+		this->giveupButton->Size = System::Drawing::Size(119, 58);
+		this->giveupButton->TabIndex = 34;
+		this->giveupButton->Text = L"投降";
+		this->giveupButton->UseVisualStyleBackColor = false;
+		this->giveupButton->Click += gcnew System::EventHandler(this, &GameForm::giveupButton_Click);
+		// 
+		// restartButton
+		// 
+		this->restartButton->BackColor = System::Drawing::Color::Peru;
+		this->restartButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->restartButton->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(136)));
+		this->restartButton->ForeColor = System::Drawing::Color::White;
+		this->restartButton->Location = System::Drawing::Point(43, 612);
+		this->restartButton->Name = L"restartButton";
+		this->restartButton->Size = System::Drawing::Size(119, 58);
+		this->restartButton->TabIndex = 34;
+		this->restartButton->Text = L"再來一局";
+		this->restartButton->UseVisualStyleBackColor = false;
+		this->restartButton->Visible = false;
+		this->restartButton->Click += gcnew System::EventHandler(this, &GameForm::restartButton_Click);
 		// 
 		// GameForm
 		// 
@@ -588,7 +625,7 @@ namespace ProjectChineseChess
 		this->MaximizeBox = false;
 		this->Name = L"GameForm";
 		this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-		this->Text = L"GameForm";
+		this->Text = L"中國象棋";
 		this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &GameForm::GameForm_FormClosing);
 		this->Click += gcnew System::EventHandler(this, &GameForm::GameForm_Click);
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotB1))->EndInit();
@@ -631,7 +668,8 @@ namespace ProjectChineseChess
 	//當視窗被關閉
 	inline System::Void GameForm::GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
 	{
-		Application::Exit();  //結束程式
+		if(!keepRun)
+			Application::Exit();  //結束程式
 	}
 
 	//當棋子被按下
@@ -652,6 +690,18 @@ namespace ProjectChineseChess
 	{
 		Application::Restart();
 		Environment::Exit(0);
+	}
+
+	System::Void GameForm::restartButton_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		keepRun = true;
+		(gcnew GameForm())->Show();
+		this->Close();
+	}
+
+	System::Void GameForm::giveupButton_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		game->GiveUp();
 	}
 
 }

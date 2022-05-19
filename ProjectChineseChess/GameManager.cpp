@@ -221,7 +221,7 @@ namespace ProjectChineseChess
 		board = gcnew Board();
 		fmanager = gcnew FileManager();
 		pieceInit();
-		current_player = 0;
+		current_player = 0;  //紅方
 	}
 
 	void GameManager::PieceClick(PictureBox^ piece)
@@ -329,29 +329,23 @@ namespace ProjectChineseChess
 						if (green->at(i)->Location == *secPos)
 						{
 							PieceClick(green->at(i));
+							//System::Threading::Thread::Sleep(500);
 							break;
 						}
 					}
 				}
 			}
-			//on_board[lastPiece->Name]->Move(board, lastPiece);  //尋找可以走的路徑
-			//for (int i = 0; i < red->size(); i++)
-			//{
-			//	if (red->at(i)->Name[0] == 'g')
-			//	{
-			//		check = true;
-			//		if (on_board[lastPiece->Name]->color == Color::BLACK)
-			//			viewer->Label1Show("黑方將軍");
-			//		else
-			//			viewer->Label1Show("紅方將軍");
-			//		break;
-			//	}
-			//}
-			//viewer->RemoveGreens();  //移除綠色點
-			//viewer->RemoveReds();  //移除紅色點
 			loading = false;
 		}
 		else
 			throw 0;
+	}
+	void GameManager::GiveUp()
+	{
+		if (current_player == 0)
+			viewer->Label1Show("黑方獲勝");
+		else
+			viewer->Label1Show("紅方獲勝");
+		viewer->GameOver();
 	}
 }

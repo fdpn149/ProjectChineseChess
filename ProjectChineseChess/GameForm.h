@@ -2,7 +2,6 @@
 #include "Chess.h"
 #include "GameManager.h"
 namespace ProjectChineseChess {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -16,11 +15,20 @@ namespace ProjectChineseChess {
 	public ref class GameForm : public System::Windows::Forms::Form
 	{
 		GameManager^ game;
+		bool keepRun = false;
 	public: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ menuButton;
+	public: System::Windows::Forms::Button^ menuButton;
+
 	public:
 
 	private: System::Windows::Forms::Panel^ panel1;
+	public: System::Windows::Forms::Button^ giveupButton;
+	private:
+	public: System::Windows::Forms::Button^ restartButton;
+
+
+
+
 	public:
 
 	public:
@@ -89,7 +97,8 @@ namespace ProjectChineseChess {
 	private: System::Void GameForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 	public: System::Void Piece_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void GameForm_Click(System::Object^ sender, System::EventArgs^ e);
-	
 	private: System::Void menuButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void restartButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void giveupButton_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

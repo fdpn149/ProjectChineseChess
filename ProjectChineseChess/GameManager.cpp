@@ -139,7 +139,7 @@ namespace ProjectChineseChess
 				{
 					p->second->Move(board, fpiece);  //尋找可以走的路徑
 					findExactlyMove(fpiece);
-					if (!green->empty())
+					if (!green->empty() || !red->empty())
 					{
 						green->clear();
 						red->clear();

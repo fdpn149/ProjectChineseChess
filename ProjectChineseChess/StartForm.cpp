@@ -143,8 +143,10 @@ namespace ProjectChineseChess
 			GameForm^ form = gcnew GameForm('L');  //建立遊戲視窗
 			form->Show();  //顯示遊戲視窗
 			this->Hide();  //隱藏開始視窗
+			form->Load();
 		}
 		//沒有開檔案
 		catch (int) {}
+
 	}
 }

@@ -74,8 +74,17 @@ namespace ProjectChineseChess
 		System::Windows::Forms::MessageBox::Show(m);
 	}
 
+	System::Windows::Forms::DialogResult Viewer::ShowMessage(String^ message, String^ caption)
+	{
+		return System::Windows::Forms::MessageBox::Show(GameForm::gameform,message,caption, System::Windows::Forms::MessageBoxButtons::YesNo);
+	}
+
 	void Viewer::Label1Show(String^ str)
 	{
+		if (str->Substring(0, 1) == "紅")
+			GameForm::gameform->label1->ForeColor = System::Drawing::Color::Firebrick;
+		else
+			GameForm::gameform->label1->ForeColor = System::Drawing::Color::Black;
 		GameForm::gameform->label1->Text = str;
 	}
 
@@ -92,20 +101,20 @@ namespace ProjectChineseChess
 		GameForm::gameform->End();
 	}
 
-	//void Viewer::test(PictureBox^ p)
-	//{
-	//	//將傳入的棋子設為紅色
-	//	p->Image = (cli::safe_cast<System::Drawing::Image^>(resourceManager->GetObject(L"Red")));
-	//	//建立一個PictureBox
-	//	System::Windows::Forms::PictureBox^ pi = gcnew PictureBox();
-	//	pi->Location = Point(265, 265);  //設定位置
-	//	pi->BackColor = Color::Transparent;  //設定背景為透明
-	//	pi->Size = Size(70, 70);  //設定大小
-	//	//將圖片設為綠色
-	//	pi->Image = (cli::safe_cast<System::Drawing::Image^>(resourceManager->GetObject(L"Green")));
-	//	//在視窗上新增綠色的東東
-	//	GameForm::gameform->Controls->Add(pi);
-	//	//移除傳入的棋子
-	//	//GameForm::gameform->Controls->Remove(p);
-	//}
+	void Viewer::Refresh()
+	{
+		GameForm::gameform->Refresh();
+	}
+	void Viewer::Loading(bool enable)
+	{
+		GameForm::gameform->giveupButton->Enabled = !enable;
+		GameForm::gameform->bar1->Visible = !enable;
+	}
+	void Viewer::BarColor(Color color)
+	{
+		if (color == Color::RED)
+			GameForm::gameform->bar1->BackColor = System::Drawing::Color::Firebrick;
+		else
+			GameForm::gameform->bar1->BackColor = System::Drawing::Color::Black;
+	}
 }

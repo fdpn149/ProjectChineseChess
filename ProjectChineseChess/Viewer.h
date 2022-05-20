@@ -1,6 +1,7 @@
 #pragma once
-
+#include "Enums.h"
 using System::Windows::Forms::PictureBox;
+using System::Windows::Forms::DialogResult;
 using System::Drawing::Point;
 using System::String;
 
@@ -23,10 +24,13 @@ namespace ProjectChineseChess {
 		void RemovePiece(PictureBox^ piece);
 		void SetPiece(PictureBox^ piece, Point^ toPos);
 		void ShowMessage(String^ m);
+		DialogResult ShowMessage(String^ message,String^ caption);
 		void Label1Show(String^ str);
 		void Label1Hide();
 		void GameOver();
-		//void test(System::Windows::Forms::PictureBox^ p);  //´ú¸Õ¥Î
+		void Refresh();
+		void Loading(bool enable);
+		void BarColor(Color color);
 	};
 
 }

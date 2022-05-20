@@ -9,6 +9,7 @@ using cliext::map;
 using cliext::vector;
 using Microsoft::VisualC::StlClr::GenericPair;
 using System::Windows::Forms::PictureBox;
+using System::Windows::Forms::DialogResult;
 using System::String;
 namespace ProjectChineseChess
 {
@@ -36,6 +37,7 @@ namespace ProjectChineseChess
 		GameManager();
 		void PieceClick(PictureBox^ piece);  //棋子被點擊
 		void FormClick();  //視窗被點擊
+		void SetFile();
 		void LoadFile();
 		void GiveUp();
 	};

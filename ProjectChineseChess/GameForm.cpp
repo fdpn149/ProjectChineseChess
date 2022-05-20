@@ -23,8 +23,13 @@ namespace ProjectChineseChess
 		gameform = this;
 		InitializeComponent();
 		game = gcnew GameManager();
-		try { game->LoadFile(); }
+		try { game->SetFile(); }
 		catch (int) { throw 0; }
+	}
+
+	void GameForm::Load()
+	{
+		game->LoadFile();
 	}
 
 	void GameForm::End()
@@ -90,6 +95,7 @@ namespace ProjectChineseChess
 		this->panel1 = (gcnew System::Windows::Forms::Panel());
 		this->giveupButton = (gcnew System::Windows::Forms::Button());
 		this->restartButton = (gcnew System::Windows::Forms::Button());
+		this->bar1 = (gcnew System::Windows::Forms::Panel());
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chariotB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->horseB1))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->elephantB1))->BeginInit();
@@ -538,6 +544,7 @@ namespace ProjectChineseChess
 		// panel1
 		// 
 		this->panel1->BackColor = System::Drawing::Color::Wheat;
+		this->panel1->Controls->Add(this->bar1);
 		this->panel1->Controls->Add(this->label1);
 		this->panel1->Controls->Add(this->giveupButton);
 		this->panel1->Controls->Add(this->restartButton);
@@ -577,6 +584,14 @@ namespace ProjectChineseChess
 		this->restartButton->UseVisualStyleBackColor = false;
 		this->restartButton->Visible = false;
 		this->restartButton->Click += gcnew System::EventHandler(this, &GameForm::restartButton_Click);
+		// 
+		// bar1
+		// 
+		this->bar1->BackColor = System::Drawing::Color::Firebrick;
+		this->bar1->Location = System::Drawing::Point(0, 0);
+		this->bar1->Name = L"bar1";
+		this->bar1->Size = System::Drawing::Size(201, 18);
+		this->bar1->TabIndex = 35;
 		// 
 		// GameForm
 		// 

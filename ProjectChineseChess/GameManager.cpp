@@ -260,6 +260,7 @@ namespace ProjectChineseChess
 					viewer->Label1Show("紅方將軍");
 				else
 					viewer->Label1Show("黑方將軍");
+				viewer->BarColor(Chess::OpponentColor(lastPiece));
 			}
 			else if (!will_check && !opponent_can_move)  //欠行
 			{
@@ -277,8 +278,12 @@ namespace ProjectChineseChess
 					viewer->Label1Show("黑方獲勝");
 				viewer->GameOver();
 			}
-			state = State::NONE;  //將狀態改回來
+			else
+			{
+				viewer->BarColor(Chess::OpponentColor(lastPiece));
+			}
 			current_player = !current_player;
+			state = State::NONE;  //將狀態改回來
 		}
 		//若只點一顆棋子
 		else if (state == State::PIECE_CLICKED)
@@ -311,12 +316,33 @@ namespace ProjectChineseChess
 		state = State::NONE;  //將狀態改回來
 	}
 
+	void GameManager::SetFile()
+	{
+		if (!fmanager->SetFile())
+			throw 0;
+	}
+
 	void GameManager::LoadFile()
 	{
 		loading = true;
-		if (fmanager->SetFile())
+		viewer->Loading(true);
+		viewer->Refresh();
+		DialogResult result = viewer->ShowMessage("回放", "");
+		bool replay = result == DialogResult::Yes ? true : false;
+		if (!replay)
 		{
-			while (fmanager->ReadLine(board))
+			viewer->Label1Show("讀取中");
+			viewer->Refresh();
+		}
+		while (fmanager->ReadLine(board))
+		{
+			if (replay)
+			{
+				System::Windows::Forms::Application::DoEvents();
+				viewer->Refresh();
+				System::Threading::Thread::Sleep(500);
+			}
+			if (fmanager->GetFirstPiece() != nullptr)
 			{
 				PieceClick(fmanager->GetFirstPiece());
 				if (fmanager->GetSecondPiece() != nullptr)
@@ -329,17 +355,17 @@ namespace ProjectChineseChess
 						if (green->at(i)->Location == *secPos)
 						{
 							PieceClick(green->at(i));
-							//System::Threading::Thread::Sleep(500);
+
 							break;
 						}
 					}
 				}
 			}
-			loading = false;
 		}
-		else
-			throw 0;
+		loading = false;
+		viewer->Loading(false);
 	}
+
 	void GameManager::GiveUp()
 	{
 		if (current_player == 0)

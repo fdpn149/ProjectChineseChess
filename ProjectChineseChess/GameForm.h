@@ -18,26 +18,26 @@ namespace ProjectChineseChess {
 		bool keepRun = false;
 	public: System::Windows::Forms::Label^ label1;
 	public: System::Windows::Forms::Button^ menuButton;
+	private: System::Windows::Forms::Panel^ panel1;
+	public:
+
+
 
 	public:
 
-	private: System::Windows::Forms::Panel^ panel1;
 	public: System::Windows::Forms::Button^ giveupButton;
 	private:
 	public: System::Windows::Forms::Button^ restartButton;
-
-
-
+	public: System::Windows::Forms::Panel^ bar1;
 
 	public:
 
 	public:
-
-
 	public:
 		static GameForm^ gameform;
 		GameForm(void);
 		GameForm(char);
+		void Load();
 		void End();
 
 

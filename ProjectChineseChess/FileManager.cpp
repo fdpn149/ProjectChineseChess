@@ -86,7 +86,6 @@ namespace ProjectChineseChess
 		secondPosition->X = nowStr[nowStr->Length - 5] - '0';
 		secondPosition->Y = nowStr[nowStr->Length - 2] - '0';
 		secondPosition = Board::ToFormCoord(secondPosition);
-
 		return true;
 	}
 	PictureBox^ FileManager::GetFirstPiece()

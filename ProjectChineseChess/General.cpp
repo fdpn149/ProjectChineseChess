@@ -70,9 +70,21 @@ namespace ProjectChineseChess
 					if (board->board[i, j]->Name == "generalR1")
 						RedGeneral = Point(i, j);
 				}
+
+			//往前吃的判斷
+			if (X == RedGeneral->X)
+			{
+				bool allNull = true;
+				for (int i = Y + 2; i < RedGeneral->Y; i++)
+					if (board->board[RedGeneral->X, i] == nullptr)
+						allNull = false;
+				if (board->board[X, Y + 1] != nullptr && allNull)
+					return false;  //"將"不能前移
+			}
+
 			if (X + 1 == RedGeneral->X)  //紅在右
 			{
-				for (int i = Y; i < RedGeneral->Y; i++)
+				for (int i = Y + 1; i < RedGeneral->Y; i++)  //Y + 1，bug修復
 				{
 					if (board->board[RedGeneral->X, i] != nullptr)
 						return true;  //不會出現王見王的情況
@@ -83,7 +95,7 @@ namespace ProjectChineseChess
 			}
 			else if (X - 1 == RedGeneral->X)  //紅在左
 			{
-				for (int i = Y; i < RedGeneral->Y; i++)
+				for (int i = Y + 1; i < RedGeneral->Y; i++)
 				{
 					if (board->board[RedGeneral->X, i] != nullptr)
 						return true;  //不會出現王見王的情況
@@ -104,9 +116,21 @@ namespace ProjectChineseChess
 					if (board->board[i, j]->Name == "generalB1")
 						BlackGeneral = Point(i, j);
 				}
+
+			//往前吃的判斷
+			if (X == BlackGeneral->X)
+			{
+				bool allNull = true;
+				for (int i = BlackGeneral->Y + 1; i <= Y - 2; i++)
+					if (board->board[BlackGeneral->X, i] == nullptr)
+						allNull = false;
+				if (board->board[X, Y - 1] != nullptr && allNull)
+					return false;  //"將"不能前移
+			}
+
 			if (BlackGeneral->X == X - 1)  //紅在右
 			{
-				for (int i = BlackGeneral->Y + 1; i <= Y; i++)
+				for (int i = BlackGeneral->Y + 1; i < Y; i++)  //i < Y，bug修復
 				{
 					if (board->board[BlackGeneral->X, i] != nullptr)
 						return true;
@@ -117,7 +141,7 @@ namespace ProjectChineseChess
 			}
 			else if (BlackGeneral->X == X + 1)  //紅在左
 			{
-				for (int i = BlackGeneral->Y + 1; i <= Y; i++)
+				for (int i = BlackGeneral->Y + 1; i < Y; i++)
 				{
 					if (board->board[BlackGeneral->X, i] != nullptr)
 						return true;
@@ -138,23 +162,25 @@ namespace ProjectChineseChess
 		int X = pos->X; int Y = pos->Y - 1;
 		if (inRange(Direction::UP, X, Y))
 		{
-			pushGreenAndRed(board, X, Y);
+			if (!KingsFaceToFace(board, Direction::LEFT, X + 1, Y)) {} //王見王判斷
+			else
+				pushGreenAndRed(board, X, Y);
 		}
 
 		//下
 		X = pos->X; Y = pos->Y + 1;
 		if (inRange(Direction::DOWN, X, Y))
 		{
-			pushGreenAndRed(board, X, Y);
+			if (!KingsFaceToFace(board, Direction::LEFT, X + 1, Y)) {} //王見王判斷
+			else
+				pushGreenAndRed(board, X, Y);
 		}
 
 		//左
 		X = pos->X - 1; Y = pos->Y;
 		if (inRange(Direction::LEFT, X, Y))
 		{
-			if (!KingsFaceToFace(board, Direction::LEFT, X + 1, Y))  //王見王判斷
-			{
-			}
+			if (!KingsFaceToFace(board, Direction::LEFT, X + 1, Y)) {}//王見王判斷
 			else
 				pushGreenAndRed(board, X, Y);
 		}
@@ -163,9 +189,7 @@ namespace ProjectChineseChess
 		X = pos->X + 1; Y = pos->Y;
 		if (inRange(Direction::RIGHT, X, Y))
 		{
-			if (!KingsFaceToFace(board, Direction::RIGHT, X - 1, Y))  //王見王判斷
-			{
-			}
+			if (!KingsFaceToFace(board, Direction::RIGHT, X - 1, Y)) {} //王見王判斷
 			else
 				pushGreenAndRed(board, X, Y);
 		}

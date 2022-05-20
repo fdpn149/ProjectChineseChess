@@ -42,6 +42,7 @@ namespace ProjectChineseChess
 	{
 		Point RedGeneral;
 		Point BlackGeneral;
+		//找出將的位置
 		for (int i = 3; i <= 5; i++)
 			for (int j = 0; j <= 2; j++)
 			{
@@ -50,7 +51,7 @@ namespace ProjectChineseChess
 				if (board->board[i, j]->Name == "generalB1")
 					BlackGeneral = Point(i, j);
 			}
-
+		//找出帥的位置
 		for (int i = 3; i <= 5; i++)
 			for (int j = 7; j <= 9; j++)
 			{

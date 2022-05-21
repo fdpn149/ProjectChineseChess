@@ -31,6 +31,7 @@ namespace ProjectChineseChess
 		bool opponentCanMove(Color color);  //判斷敵方是否欠行
 		void findExactlyMove(PictureBox^ piece);
 		bool cross_river(PictureBox^ piece);
+		void checkJudge();  //將軍、勝利判斷
 	public:
 		static vector<PictureBox^>^ green = gcnew vector<PictureBox^>;  //存可走的路徑
 		static vector<PictureBox^>^ red = gcnew vector<PictureBox^>;  //存可被吃掉的棋子

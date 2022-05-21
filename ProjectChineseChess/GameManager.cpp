@@ -215,6 +215,42 @@ namespace ProjectChineseChess
 		return false;
 	}
 
+	void GameManager::checkJudge()
+	{
+		Color pieceColor = Chess::PieceColor(lastPiece);
+		bool will_check = willCheck(pieceColor);
+		bool opponent_can_move = opponentCanMove(pieceColor);
+		if (will_check && opponent_can_move)
+		{
+			check = true;
+			if (pieceColor == Color::RED)
+				viewer->Label1Show("紅方將軍");
+			else
+				viewer->Label1Show("黑方將軍");
+			viewer->BarColor(Chess::OpponentColor(lastPiece));
+		}
+		else if (!will_check && !opponent_can_move)  //欠行
+		{
+			if (pieceColor == Color::RED)
+				viewer->Label1Show("紅方獲勝");
+			else
+				viewer->Label1Show("黑方獲勝");
+			viewer->GameOver();
+		}
+		else if (will_check && !opponent_can_move)  //獲勝
+		{
+			if (pieceColor == Color::RED)
+				viewer->Label1Show("紅方獲勝");
+			else
+				viewer->Label1Show("黑方獲勝");
+			viewer->GameOver();
+		}
+		else
+		{
+			viewer->BarColor(Chess::OpponentColor(lastPiece));
+		}
+	}
+
 	GameManager::GameManager()
 	{
 		viewer = gcnew Viewer();
@@ -233,8 +269,8 @@ namespace ProjectChineseChess
 			on_board[lastPiece->Name]->OnMove(board, lastPiece->Location, piece->Location);  //移動棋子
 			check = false;
 			viewer->Label1Hide();
-			if (!loading)
-				fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);
+			if (!loading)  //如果不在讀取中
+				fmanager->WriteLog(current_player + 1, lastPiece, lastPiece->Location, piece->Location);  //寫Log
 			if (piece->Name != "green")
 			{
 				viewer->RemovePiece(piece);
@@ -244,44 +280,15 @@ namespace ProjectChineseChess
 			viewer->PieceUnclick(lastPiece);  //將棋子顏色改回來
 			viewer->RemoveGreens();  //移除綠色點
 			viewer->RemoveReds();  //移除紅色點
+
+			//過河判斷
 			if (lastPiece->Name->Substring(0, 7) == "soldier")
 			{
 				if (cross_river(lastPiece))
 					on_board[lastPiece->Name]->SetCrossRiver();
 			}
 
-			Color pieceColor = Chess::PieceColor(lastPiece);
-			bool will_check = willCheck(pieceColor);
-			bool opponent_can_move = opponentCanMove(pieceColor);
-			if (will_check && opponent_can_move)
-			{
-				check = true;
-				if (pieceColor == Color::RED)
-					viewer->Label1Show("紅方將軍");
-				else
-					viewer->Label1Show("黑方將軍");
-				viewer->BarColor(Chess::OpponentColor(lastPiece));
-			}
-			else if (!will_check && !opponent_can_move)  //欠行
-			{
-				if (pieceColor == Color::RED)
-					viewer->Label1Show("紅方獲勝");
-				else
-					viewer->Label1Show("黑方獲勝");
-				viewer->GameOver();
-			}
-			else if (will_check && !opponent_can_move)  //獲勝
-			{
-				if (pieceColor == Color::RED)
-					viewer->Label1Show("紅方獲勝");
-				else
-					viewer->Label1Show("黑方獲勝");
-				viewer->GameOver();
-			}
-			else
-			{
-				viewer->BarColor(Chess::OpponentColor(lastPiece));
-			}
+			checkJudge();
 			current_player = !current_player;
 			state = State::NONE;  //將狀態改回來
 		}
@@ -372,6 +379,10 @@ namespace ProjectChineseChess
 			viewer->Label1Show("黑方獲勝");
 		else
 			viewer->Label1Show("紅方獲勝");
+		if (lastPiece != nullptr)
+			viewer->PieceUnclick(lastPiece);  //將上個棋子的顏色改回來
+		viewer->RemoveGreens();  //移除綠色點
+		viewer->RemoveReds();  //移除紅色點
 		viewer->GameOver();
 	}
 }
